@@ -17,7 +17,7 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class ElevEncoder extends Subsystem {
+public class ElevatorSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     // instantiate new motor controller objects

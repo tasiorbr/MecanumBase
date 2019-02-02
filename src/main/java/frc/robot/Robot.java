@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ManualDriveCartesian;
 import frc.robot.commands.SetElevatorLevel;
+import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.MecDriveSubsystem;
 
 /**
@@ -27,6 +28,7 @@ public class Robot extends TimedRobot {
   //public static ExampleSubsystem subsystem = new ExampleSubsystem();
   //public static OI oi;
   public static MecDriveSubsystem mecDriveSubsystem = new MecDriveSubsystem();
+  public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
   public static OI oi;
 
 
@@ -126,9 +128,9 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     chooser.setDefaultOption("Default Auto", new ManualDriveCartesian());
-    public  Command() { 
-    addSequential(new SetElevatorLevel());
- 
+  //  public void Command() { 
+   //    execute SetElevatorLevel();
+ //   }
   }
 
   /**

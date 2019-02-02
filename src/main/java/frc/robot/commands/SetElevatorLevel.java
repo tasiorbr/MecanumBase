@@ -9,13 +9,11 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.ElevEncoder;
 
 public class SetElevatorLevel extends Command {
-  public Void ElevEncoder() {
-  
-      // Use requires() here to declare subsystem dependencies
-     // requires(ElevEncoder);
+  public ElevatorSubsystem() {
+    // Use requires() here to declare subsystem dependencies
+    requires(Robot.elevatorSubsystem);
     }
   
 
@@ -47,7 +45,7 @@ public class SetElevatorLevel extends Command {
  
      if(isClockwisePressed) {
          boolean rotateClockwise = Robot.oi.rightstick.getRawButton(1);
-         elevatorEncoderMotor.set(0.1);
+         Robot.elevatorEncoderMotor.set(0.1);
      }
  
      if(isCounterClockwisePressed) {
