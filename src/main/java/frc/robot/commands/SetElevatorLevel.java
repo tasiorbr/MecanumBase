@@ -15,7 +15,7 @@ public class SetElevatorLevel extends Command {
   public Void ElevEncoder() {
   
       // Use requires() here to declare subsystem dependencies
-      requires(ElevEncoder);
+     // requires(ElevEncoder);
     }
   
 
