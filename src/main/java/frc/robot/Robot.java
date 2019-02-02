@@ -128,10 +128,22 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     chooser.setDefaultOption("Default Auto", new ManualDriveCartesian());
-  //  public void Command() { 
-   //    execute SetElevatorLevel();
- //   }
+    new SetElevatorLevel();
+    
+  protected void execute() {
+    SmartDashboard.putBoolean("Button 5", setElevatorLevel.isFirstLevelPressed());
+    SmartDashboard.putBoolean("Button 6", setElevatorLevel.isSecondLevelPressed());
+    SmartDashboard.putBoolean("Button 7", setElevatorLevel.isThirdLevelPressed());
+    SmartDashboard.putNumber("Target Value", Robot.elevatorSubsystem.getSetpoint());
+    SmartDashboard.putNumber("Motor Speed", Robot.elevatorSubsystem.elevMotorTargetSpeed());
+    SmartDashboard.putNumber("Motor Speed", Robot.elevatorSubsystem.elevEnc.get());
   }
+  
+  
+  
+  
+  }
+  
 
   /**
    * This function is called periodically during test mode.

@@ -9,22 +9,15 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.ElevatorSubsystem;
 
 public class SetElevatorLevel extends Command {
-  public ElevatorSubsystem() {
+  public void ElevatorSubsystem() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.elevatorSubsystem);
     }
   
-
-
-  
-  public SetElevatorLevel() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-  }
-
-  // Called just before this Command runs the first time
+    // Called just before this Command runs the first time
   @Override
   protected void initialize() {
   }
@@ -32,18 +25,18 @@ public class SetElevatorLevel extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-     // Defining what the buttons do for rotating motor
+     /* Defining what the buttons do for rotating motor
      boolean isClockwisePressed = Robot.oi.rightstick.getRawButtonPressed(1);
      boolean isCounterClockwisePressed = Robot.oi.rightstick.getRawButtonPressed(2);
-    
+    */
+
      // Defining what the buttons do for moving the elevator
      boolean isFirstLevelPressed = Robot.oi.rightstick.getRawButtonPressed(5);
      boolean isSecondLevelPressed = Robot.oi.rightstick.getRawButtonPressed(6);
      boolean isThirdLevelPressed = Robot.oi.rightstick.getRawButtonPressed(7);
-     boolean isGroundLevelPressed = Robot.oi.rightstick.getRawButtonPressed(8);
- 
- 
-     if(isClockwisePressed) {
+
+
+/*   if(isClockwisePressed) {
          boolean rotateClockwise = Robot.oi.rightstick.getRawButton(1);
          Robot.elevatorEncoderMotor.set(0.1);
      }
@@ -52,43 +45,43 @@ public class SetElevatorLevel extends Command {
          boolean rotateCounterClockwise = Robot.oi.rightstick.getRawButton(2);
          elevatorEncoderMotor.set(-0.1); 
      }
- 
+*/ 
      if(isFirstLevelPressed) {
-         boolean moveToFirstLevel = Robot.oi.rightstick.getRawButtonPressed(5);
-         elevatorEncoderMotor.set(0.1); 
+        Robot.elevatorSubsystem.setSetpoint(Robot.elevatorSubsystem.firstLevel);
+        
+         
      }
  
      if(isSecondLevelPressed) {
-         boolean moveToSecondLevel = Robot.oi.rightstick.getRawButtonPressed(6);
-         elevatorEncoderMotor.set(0.1);
+        Robot.elevatorSubsystem.setSetpoint(Robot.elevatorSubsystem.secondLevel);     
+        
      }
  
      if(isThirdLevelPressed) {
-         boolean moveToThirdLevel = Robot.oi.rightstick.getRawButtonPressed(7);
-         elevatorEncoderMotor.set(0.1);
+        Robot.elevatorSubsystem.setSetpoint(Robot.elevatorSubsystem.thirdLevel);       
+        
      }
  
-     if(isGroundLevelPressed) {
-         boolean moveToGroundLevel = Robot.oi.rightstick.getRawButtonPressed(8);
-         elevatorEncoderMotor.set(-0.1);
- 
-     }
+     
+
   }
 
-  // Make this return true when this Command no longer needs to run execute()
-  @Override
-  protected boolean isFinished() {
+ 
+// Make this return true when this Command no longer needs to run execute()
+    @Override
+    protected boolean isFinished() {
     return false;
-  }
+    }
 
-  // Called once after isFinished returns true
-  @Override
-  protected void end() {
-  }
+// Called once after isFinished returns true
+    @Override
+    protected void end() {
+    }
 
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
-  @Override
-  protected void interrupted() {
-  }
+// Called when another command which requires one or more of the same
+// subsystems is scheduled to run
+    @Override
+    protected void interrupted() {
+    }
+
 }
