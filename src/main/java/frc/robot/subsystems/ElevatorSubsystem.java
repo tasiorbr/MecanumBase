@@ -25,30 +25,28 @@ public class ElevatorSubsystem extends PIDSubsystem {
     public Spark elevatorEncoderMotor = new Spark(RobotMap.motorPortEncoder);
     Encoder elevEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 
-    public double elevTarget = 0.0;
-    public static final double firstLevel = 0.0;
-    public static final double secondLevel = 5000;
-    public static final double thirdLevel = 6000;
-    public static final double fourthLevel = 300;
-    public static final double fithLevel = 400;
-    public static final double sixthLevel = 500;
-    public static final double elevP = 2.0;
-    public static final double elevI = 0.0;
-    public static final double elevD = 0.0;
+    public final double firstLevel = 0.0;
+    public final double secondLevel = 5000;
+    public final double thirdLevel = 6000;
+    public final double fourthLevel = 300;
+    public final double fithLevel = 400;
+    public final double sixthLevel = 500;
+    public final double elevP = 2.0;
+    public final double elevI = 0.0;
+    public final double elevD = 0.0;
 
-      public ElevatorSubsystem() {
+    public ElevatorSubsystem() {
 
        
-     // The constructor passes a name for the subsystem and the P, I and D constants that are used when computing the motor output 
+     // The constructor passes a name for the subsystem and 
+     // the P, I and D constants that are used when computing the motor output 
       super("ElevatorSubsystem", 2.0, 0.0, 0.0);
       setAbsoluteTolerance(0.05);
       getPIDController().setContinuous(false);
-      setSetpoint(elevTarget);    
+      // No longer needed because setSetpoint is called in the command
+      //  setSetpoint(elevTarget);    
     }
-    
-      public void initDefaultCommand() {
-      }
-  
+
       protected double returnPIDInput() {
         // returns the encoder count
         return elevEnc.get();
@@ -58,4 +56,8 @@ public class ElevatorSubsystem extends PIDSubsystem {
       // this is where the computed output value fromthe PIDController is applied to the motor
         elevatorEncoderMotor.pidWrite(elevMotorTargetSpeed); 
       }
-  }
+
+      public void initDefaultCommand() {
+      }
+  
+}

@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ManualDriveCartesian;
-import frc.robot.commands.SetElevatorLevel;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.MecDriveSubsystem;
 
@@ -44,7 +43,12 @@ public class Robot extends TimedRobot {
     oi = new OI();
     chooser.setDefaultOption("Default Auto", new ManualDriveCartesian());
         // chooser.addOption("My Auto", new MyAutoCommand());
+    
     SmartDashboard.putData("Auto mode", chooser);
+    SmartDashboard.putNumber("Target Value", Robot.elevatorSubsystem.getSetpoint());
+   // SmartDashboard.putNumber("Motor Speed", Robot.elevatorSubsystem.elevMotorTargetSpeed());
+  //  SmartDashboard.putNumber("Motor Speed", Robot.elevatorSubsystem.elevEnc.get());
+  
   }
 
   /**
@@ -128,20 +132,8 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     chooser.setDefaultOption("Default Auto", new ManualDriveCartesian());
-    new SetElevatorLevel();
     
-  protected void execute() {
-    SmartDashboard.putBoolean("Button 5", setElevatorLevel.isFirstLevelPressed());
-    SmartDashboard.putBoolean("Button 6", setElevatorLevel.isSecondLevelPressed());
-    SmartDashboard.putBoolean("Button 7", setElevatorLevel.isThirdLevelPressed());
-    SmartDashboard.putNumber("Target Value", Robot.elevatorSubsystem.getSetpoint());
-    SmartDashboard.putNumber("Motor Speed", Robot.elevatorSubsystem.elevMotorTargetSpeed());
-    SmartDashboard.putNumber("Motor Speed", Robot.elevatorSubsystem.elevEnc.get());
-  }
-  
-  
-  
-  
+    //SetElevatorLevel();
   }
   
 
