@@ -25,9 +25,9 @@ public class RobotMap {
   // public static int rangefinderModule = 1;
 
    // PWM Ports
-   public static int motorPortFrontLeft = 0;
+   public static int motorPortFrontLeft = 1;
    public static int motorPortRearLeft = 2;
-   public static int motorPortFrontRight = 1;
+   public static int motorPortFrontRight = 0;
    public static int motorPortRearRight = 3;
    public static int motorPortEncoder = 4;
  

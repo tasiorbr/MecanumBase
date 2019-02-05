@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.CameraServer;
 import frc.robot.commands.ManualDriveCartesian;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.MecDriveSubsystem;
@@ -29,6 +30,7 @@ public class Robot extends TimedRobot {
   public static MecDriveSubsystem mecDriveSubsystem = new MecDriveSubsystem();
   public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
   public static OI oi;
+  //CameraServer.getInstance().startAutomaticCapture();
 
 
   Command autonomousCommand;

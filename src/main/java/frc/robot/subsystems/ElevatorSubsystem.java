@@ -26,8 +26,8 @@ public class ElevatorSubsystem extends PIDSubsystem {
     Encoder elevEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 
     public final double firstLevel = 0.0;
-    public final double secondLevel = 5000;
-    public final double thirdLevel = 6000;
+    public final double secondLevel = 500;
+    public final double thirdLevel = 600;
     public final double fourthLevel = 300;
     public final double fithLevel = 400;
     public final double sixthLevel = 500;
