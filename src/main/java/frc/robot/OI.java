@@ -11,7 +11,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.smartdashboard.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.*;
 
 /**
@@ -38,6 +38,9 @@ public class OI {
       public Button thirdLevel = new JoystickButton(rightstick, 7);
       public Button fourthLevel = new JoystickButton(rightstick, 8);
       public Button fithLevel = new JoystickButton(rightstick, 9);
+
+      //Joel added - This sets the trigger on the left joystick as the button for the gripper
+      public Button grippertrigger = new JoystickButton(leftstick, 1);
   
       public OI() {
 
@@ -68,8 +71,11 @@ public class OI {
   
    //  Add remaining buttons above with the others then copy the above syntax and add remaining levels here
   
-  
-  
+  //  Joel's Comment:  This command will fire the command to close the gripper
+  grippertrigger.whileHeld(new CloseGripper());
+
+
+
   }
   // Run the command while the button is being held down and interrupt it once
   // the button is released.

@@ -25,15 +25,6 @@ public class ElevatorSubsystem extends PIDSubsystem {
     public Spark elevatorEncoderMotor = new Spark(RobotMap.motorPortEncoder);
     Encoder elevEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 
-    public final double firstLevel = 0.0;
-    public final double secondLevel = 500;
-    public final double thirdLevel = 600;
-    public final double fourthLevel = 300;
-    public final double fithLevel = 400;
-    public final double sixthLevel = 500;
-    public final double elevP = 2.0;
-    public final double elevI = 0.0;
-    public final double elevD = 0.0;
 
     public ElevatorSubsystem() {
 

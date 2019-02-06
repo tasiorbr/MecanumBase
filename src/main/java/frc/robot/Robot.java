@@ -16,6 +16,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ManualDriveCartesian;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.MecDriveSubsystem;
+import frc.robot.subsystems.PneumaticSubsystem;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,6 +31,7 @@ public class Robot extends TimedRobot {
   //public static OI oi;
   public static MecDriveSubsystem mecDriveSubsystem = new MecDriveSubsystem();
   public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
+  public static PneumaticSubsystem pneumaticSubsystem = new PneumaticSubsystem();
   public static OI oi;
   //CameraServer.getInstance().startAutomaticCapture();
 
@@ -72,6 +75,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
+   //Ensure Compressor is turned off
+ 
   }
 
   @Override
