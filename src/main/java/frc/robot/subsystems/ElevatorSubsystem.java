@@ -25,6 +25,8 @@ public class ElevatorSubsystem extends PIDSubsystem {
     public Spark elevatorEncoderMotor = new Spark(RobotMap.motorPortEncoder);
     Encoder elevEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 
+    public Spark elevatorWinch = new Spark(RobotMap.motorPortElevator);
+
 
     public ElevatorSubsystem() {
 

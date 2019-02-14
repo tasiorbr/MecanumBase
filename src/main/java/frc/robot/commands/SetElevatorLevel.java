@@ -32,6 +32,10 @@ public class SetElevatorLevel extends Command{
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    double moveX = Robot.oi.gameStick.getRawAxis(0);
+    double moveY = Robot.oi.gameStick.getRawAxis(1);
+
+    
   } 
 
 // Make this return true when this Command no longer needs to run execute()

@@ -26,18 +26,31 @@ public class OI {
   // number it is.
   public Joystick leftstick = new Joystick(RobotMap.leftcontrollerPort);
   public Joystick rightstick = new Joystick(RobotMap.rightcontrollerPort);
-      //cade added >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  public Joystick gameStick = new Joystick(RobotMap.gameStickPort);
+      //Cade added >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       public Button strafeLeft = new JoystickButton(rightstick, 3);
       public Button strafeRight = new JoystickButton(rightstick, 4);
       //Jade added with Cade's help
       public Button motorClockwise = new JoystickButton(rightstick, 1);
       public Button motorCounterClockwise = new JoystickButton(rightstick, 2);
       //Jade added
-      public Button firstLevel = new JoystickButton(rightstick, 5);
+     /* public Button firstLevel = new JoystickButton(rightstick, 5);
       public Button secondLevel = new JoystickButton(rightstick, 6);
       public Button thirdLevel = new JoystickButton(rightstick, 7);
       public Button fourthLevel = new JoystickButton(rightstick, 8);
-      public Button fithLevel = new JoystickButton(rightstick, 9);
+      public Button fifthLevel = new JoystickButton(rightstick, 9);*/
+      //Shaddai added by looking at Cade's code
+      public Button firstLevel = new JoystickButton(gameStick, 4);
+      public Button secondLevel = new JoystickButton(gameStick, 9);
+      public Button thirdLevel = new JoystickButton(gameStick, 5);
+      public Button fourthLevel = new JoystickButton(gameStick, 11);
+      public Button fifthLevel = new JoystickButton(gameStick, 3);
+
+      public Button ClimbOne = new JoystickButton(gameStick, 10);
+      public Button ClimbTwo = new JoystickButton(gameStick, 12);
+      public Button ClimbThree = new JoystickButton(gameStick, 7);
+
+  
 
       //Joel added - This sets the trigger on the left joystick as the button for the gripper
       public Button grippertrigger = new JoystickButton(leftstick, 1);
@@ -66,13 +79,15 @@ public class OI {
     fourthLevel.whenPressed(new SetElevatorLevel(600));
     SmartDashboard.putData("Level 4", new SetElevatorLevel(600));
     
-    fithLevel.whenPressed(new SetElevatorLevel(800));
+    fifthLevel.whenPressed(new SetElevatorLevel(800));
     SmartDashboard.putData("Level 5", new SetElevatorLevel(800));
   
    //  Add remaining buttons above with the others then copy the above syntax and add remaining levels here
   
   //  Joel's Comment:  This command will fire the command to close the gripper
   grippertrigger.whileHeld(new CloseGripper());
+
+
 
 
 

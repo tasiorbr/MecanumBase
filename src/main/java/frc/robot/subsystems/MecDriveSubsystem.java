@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+//import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
@@ -20,6 +21,11 @@ public class MecDriveSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   // instantiate new motor controller objects
+
+  /*public Spark driveFrontLeft = new Spark(RobotMap.motorPortFrontLeft);
+  public Spark driveFrontRight = new Spark(RobotMap.motorPortFrontRight);
+  public Spark driveRearLeft = new Spark(RobotMap.motorPortRearLeft);
+  public Spark driveRearRight = new Spark(RobotMap.motorPortRearRight);*/
   
   public VictorSP driveFrontLeft = new VictorSP(RobotMap.motorPortFrontLeft);
   public VictorSP driveFrontRight = new VictorSP(RobotMap.motorPortFrontRight);

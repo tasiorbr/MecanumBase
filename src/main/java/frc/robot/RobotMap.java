@@ -29,16 +29,21 @@ public class RobotMap {
    public static int motorPortRearLeft = 2;
    public static int motorPortFrontRight = 0;
    public static int motorPortRearRight = 3;
-   public static int motorPortEncoder = 4;
- 
+   public static int motorPortEncoder = 8;//Not sure if we are using this
+   public static int motorPortElevator = 4;
+   public static int motorPortCargoLeft = 5;
+   public static int motorPortCargoRight = 6;
+   public static int motorPortArmsUpDown = 7;
+
    // PID
  
    // CAN
  
    // USB
      // Joystics and Controllers
-     public static int leftcontrollerPort=0;
-     public static int rightcontrollerPort=1;
+     public static int leftcontrollerPort = 0;
+     public static int rightcontrollerPort = 1;
+     public static int gameStickPort = 2; 
 
 
 

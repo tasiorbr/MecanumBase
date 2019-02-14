@@ -19,7 +19,7 @@ public class PneumaticSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   Compressor c = new Compressor(0); 
-  public Solenoid gripperSolenoid = new Solenoid(1);
+  public Solenoid gripperSolenoid = new Solenoid(0);
   public DoubleSolenoid mainPlateDouble = new DoubleSolenoid(2, 3);
   public DoubleSolenoid secondaryPlate = new DoubleSolenoid(4, 5);
   public DoubleSolenoid forwardBackwardDouble = new DoubleSolenoid(6, 7);

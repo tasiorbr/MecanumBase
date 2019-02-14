@@ -9,29 +9,38 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.ColorSensorSubsytem;
 
-public class Pneumatics extends Command {
-  public Pneumatics() {
+public class ElevatorLightLevel extends Command {
+  public ElevatorLightLevel() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    //Shaddai added
-    requires(Robot.pneumaticSubsystem); 
+    requires(Robot.elevatorSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    private ColorSensorSubsytem cs = new ColorSensorSubsytem(I2C.Port.KOnBoard);
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Shaddai added
-   /* Robot.pneumaticSubsystem.mainPlateDouble.set(kOff);
-    Robot.pneumaticSubsystem.mainPlateDouble.set(kForward);
+    /*cs.read();
+    cs.red;
+    cs.green;
+    cs.blue;*/
+    isFirstLevelPressed();
+   
+    isSecondLevelPressed();
+    
+    isThirdLevelPressed();
 
-    Robot.pneumaticSubsystem.secondaryPlate.set(kOff);
-    Robot.pneumaticSubsystem.secondaryPlate.set(kForward);*/
+    isFourthLevelPressed();
+
+    isFifthLevelPressed();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -43,19 +52,12 @@ public class Pneumatics extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    //Shaddai added
-    /*Robot.pneumaticSubsystem.mainPlateDouble.set(kOff);
-
-    Robot.pneumaticSubsystem.secondaryPlate.set(kOff);*/
+     
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    //Shaddai added
-    /*Robot.pneumaticSubsystem.mainPlateDouble.set(kOff);
-
-    Robot.pneumaticSubsystem.secondaryPlate.set(kOff);*/
   }
 }
