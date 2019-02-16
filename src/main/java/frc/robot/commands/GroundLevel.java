@@ -11,13 +11,13 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 
-public class SetElevatorLevel extends Command{
+public class GroundLevel extends Command{
 
     private int setElevLevelCommandSetpoint;
 
-    public SetElevatorLevel(int setElevLevelSetpoint) {
+    public GroundLevel() {
     // Use requires() here to declare subsystem dependencies
-    setElevLevelCommandSetpoint = setElevLevelSetpoint;
+    setElevLevelCommandSetpoint = 0;
     
     requires(Robot.elevatorSubsystem);
     }
@@ -32,7 +32,7 @@ public class SetElevatorLevel extends Command{
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() { 
+  protected void execute() {
   } 
 
 // Make this return true when this Command no longer needs to run execute()
@@ -45,14 +45,12 @@ public class SetElevatorLevel extends Command{
 // Called once after isFinished returns true
     @Override
     protected void end() {
-        Robot.elevatorSubsystem.disable();
     }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
     @Override
     protected void interrupted() {
-        Robot.elevatorSubsystem.disable();
     }
 
 }

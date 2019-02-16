@@ -12,7 +12,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.*;
+import frc.robot.commands.CloseGripper;
+import frc.robot.commands.GroundLevel;
+import frc.robot.commands.LiftBackward;
+import frc.robot.commands.SetElevatorLevel;
+import frc.robot.commands.LiftForward;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -46,9 +50,12 @@ public class OI {
       public Button fourthLevel = new JoystickButton(gameStick, 11);
       public Button fifthLevel = new JoystickButton(gameStick, 3);
 
-      public Button ClimbOne = new JoystickButton(gameStick, 10);
-      public Button ClimbTwo = new JoystickButton(gameStick, 12);
-      public Button ClimbThree = new JoystickButton(gameStick, 7);
+      public Button elevForward = new JoystickButton(gameStick, 8);
+      public Button elevBackward = new JoystickButton(gameStick, 6);
+
+      public Button climbOne = new JoystickButton(gameStick, 10);
+      public Button climbTwo = new JoystickButton(gameStick, 12);
+      public Button climbThree = new JoystickButton(gameStick, 7);
 
   
 
@@ -67,8 +74,8 @@ public class OI {
 
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
-    firstLevel.whenPressed(new SetElevatorLevel(0));
-    SmartDashboard.putData("Level 1", new SetElevatorLevel(0));   
+    firstLevel.whenPressed(new GroundLevel());
+    SmartDashboard.putData("Level 1", new GroundLevel());   
     
     secondLevel.whenPressed(new SetElevatorLevel(200));
     SmartDashboard.putData("Level 2", new SetElevatorLevel(200));
@@ -86,6 +93,12 @@ public class OI {
   
   //  Joel's Comment:  This command will fire the command to close the gripper
   grippertrigger.whileHeld(new CloseGripper());
+
+  //  Justin's Comment: This command will fire the command to move lift forward
+  elevForward.whenPressed(new LiftForward());
+
+  //  Justin's Comment: This command will fire the command to move lift backward
+  elevBackward.whenPressed(new LiftBackward());
 
 
 

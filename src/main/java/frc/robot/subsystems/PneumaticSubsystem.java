@@ -21,7 +21,7 @@ public class PneumaticSubsystem extends Subsystem {
   Compressor c = new Compressor(0); 
   public Solenoid gripperSolenoid = new Solenoid(0);
   public DoubleSolenoid mainPlateDouble = new DoubleSolenoid(2, 3);
-  public DoubleSolenoid secondaryPlate = new DoubleSolenoid(4, 5);
+  public DoubleSolenoid secondaryPlateDouble = new DoubleSolenoid(4, 5);
   public DoubleSolenoid forwardBackwardDouble = new DoubleSolenoid(6, 7);
 
 /*  These will be pulled out of here and used in the vavious commands...

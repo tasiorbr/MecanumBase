@@ -7,40 +7,28 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.ColorSensorSubsytem;
 
-public class ElevatorLightLevel extends Command {
-  public ElevatorLightLevel() {
+public class LiftBackward extends Command {
+  public LiftBackward() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.elevatorSubsystem);
+    //Shaddai added
+    requires(Robot.pneumaticSubsystem); 
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    private ColorSensorSubsytem cs = new ColorSensorSubsytem(I2C.Port.KOnBoard);
-
+    Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    /*cs.read();
-    cs.red;
-    cs.green;
-    cs.blue;*/
-    isFirstLevelPressed();
-   
-    isSecondLevelPressed();
-    
-    isThirdLevelPressed();
-
-    isFourthLevelPressed();
-
-    isFifthLevelPressed();
+    Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kReverse);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -52,12 +40,13 @@ public class ElevatorLightLevel extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-     
+    Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
   }
 }
