@@ -47,6 +47,10 @@ public class SetElevatorLevel extends Command {
   protected void execute() { 
     System.out.println(setElevLevelCommandSetpoint);
     Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.Position, setElevLevelCommandSetpoint);
+    
+
+    
+
 
        
   } 
