@@ -24,7 +24,7 @@ public class ManualDriveCartesian extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double moveX = -Robot.oi.leftstick.getRawAxis(1);
+    double moveX = -0.7 * Robot.oi.leftstick.getRawAxis(1);
     double moveY =  Robot.oi.rightstick.getRawAxis(0);
     double rotateZ = 0.4 * Robot.oi.rightstick.getRawAxis(2);
 
