@@ -26,14 +26,16 @@ public class PneumaticSubsystem extends Subsystem {
 // Joel's comment:  Adding this section is what allows us to call the PneumaticSubsystem from other parts of the code
     public PneumaticSubsystem () {
 
-    //Joel's comment - These lines simply return the state of the compressor, pressure switch and compressor current
-    //These are only needed if we want to display them on the driverstation/smart dashboard
-    //However, they are not hurting anything as they are but...
-    //If uncommented they show as unused variables since they aren't currently used anywhere else
-    //By having them in this section, they should be able to be called from other areas of the code (but I could be wrong aobut that!)
+    /*
+    Joel's comment - These lines simply return the state of the compressor, pressure switch and compressor current
+    These are only needed if we want to display them on the driverstation/smart dashboard
+    If uncommented they show as unused variables since they aren't currently used anywhere else
+    By having them in this section, they should be able to be called from other areas of the code (but I could be wrong aobut that!)
+    */
     //  boolean enabled = c.enabled();
     //  boolean pressureSwitch = c.getPressureSwitchValue();
     //  double current =c.getCompressorCurrent();
+    
     }
 
   @Override

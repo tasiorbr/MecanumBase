@@ -42,7 +42,7 @@ public class OI {
       //public Button levelOneCargo = new JoystickButton(gameStick, 7);
       public Button levelTwoHatch = new JoystickButton(gameStick, 5);
       // public Button levelTwoCargo = new JoystickButton(gameStick, 12);
-      // public Button levelThreeHatch = new JoystickButton(gameStick, 9);
+      public Button levelThreeHatch = new JoystickButton(gameStick, 9);
       //public Button levelThreeCargo = new JoystickButton(gameStick, 10);
 
       public Button elevForward = new JoystickButton(gameStick, 8);
