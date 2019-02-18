@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-//import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.CameraServer;
 //import edu.wpi.cscore.UsbCamera;
 import frc.robot.commands.ElevatorManualMove;
 import frc.robot.commands.ManualDriveCartesian;//import edu.wpi.first.wpilibj.CameraServer;//import edu.wpi.cscore.UsbCamera;
@@ -56,7 +56,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Auto mode", chooser);
 
     Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
-  
+
+    CameraServer.getInstance().startAutomaticCapture();
   }
 
   /**
@@ -122,6 +123,8 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
     chooser.setDefaultOption("Default Auto", new ManualDriveCartesian());
+    Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.PercentOutput, -Robot.oi.gameStick.getRawAxis(0));
+    
   }
 
   @Override
