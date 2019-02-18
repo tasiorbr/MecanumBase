@@ -31,6 +31,7 @@ public class PlatesDown extends InstantCommand {
 
     Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
     Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kForward);
+    
     Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kOff);
     Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kForward);
   }

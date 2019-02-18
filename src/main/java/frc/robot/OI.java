@@ -60,7 +60,7 @@ public class OI {
       
 
       //Joel added - This sets the trigger on the left joystick as the button for the gripper
-      public Button gripperTrigger = new JoystickButton(leftstick, 1);
+      public Button gripperTrigger = new JoystickButton(rightstick, 1);
       
       //public Button elevatorStick = new JoystickButton(gameStick, 0);
   

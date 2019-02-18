@@ -45,8 +45,10 @@ public class SetElevatorLevel extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() { 
+    System.out.println(setElevLevelCommandSetpoint);
     Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.Position, setElevLevelCommandSetpoint);
-    
+
+       
   } 
 
 // Make this return true when this Command no longer needs to run execute()
@@ -59,13 +61,16 @@ public class SetElevatorLevel extends Command {
 // Called once after isFinished returns true
     @Override
     protected void end() {
-   //     Robot.elevatorSubsystem.elevatorMotor.disable();
+        Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.PercentOutput, 0);
+   
+        
     }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
     @Override
-    protected void interrupted() {
+    protected void interrupted() { 
+        Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.PercentOutput, 0);
     //    Robot.elevatorSubsystem.disable();
     }
 
