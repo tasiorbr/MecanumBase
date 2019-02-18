@@ -60,10 +60,8 @@ public class SetElevatorLevel extends Command {
     //Maximum allowable output for the control loop, 1 = 100%
     public final double peakOudtput = 1;
     
-    //Allowable error in "Native Units" (i.e. encoder 'ticks') for loop to be considered "On Target" 
-    //public int errorAllowed =25000;
     
-    
+        
     private int setElevLevelCommandSetpoint;
 
     public SetElevatorLevel(int setElevLevelSetpoint) {
@@ -78,8 +76,6 @@ public class SetElevatorLevel extends Command {
   protected void initialize() {
     
 
-    //Set the PID Loop allowable error
-    Robot.elevatorSubsystem.elevatorMotor.configAllowableClosedloopError(0, 25000, 0);
     
     //Set the motor control mode and target value (for position target is in encloder 'ticks')
     Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.Position, setElevLevelCommandSetpoint);

@@ -34,13 +34,27 @@ public class ElevatorSubsystem extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
     
     //Set the feedback device that is hooked up to the talon
-    elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+    elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
     
     elevatorMotor.setInverted(true);
     elevatorMotor.setSensorPhase(false);
     elevatorMotor.configFactoryDefault();
     elevatorMotor.setNeutralMode(NeutralMode.Brake);
     
+    //Set Limites for Motor
+    elevatorMotor.configNominalOutputForward(0, 0);
+		elevatorMotor.configNominalOutputReverse(0, 0);
+		elevatorMotor.configPeakOutputForward(1, 0);
+    elevatorMotor.configPeakOutputReverse(-.5,0);
+    
+    //Set the PID Loop allowable error
+    //Allowable error in "Native Units" (i.e. encoder 'ticks') for loop to be considered "On Target" 
+    elevatorMotor.configAllowableClosedloopError(0, 25000, 0);
+    
+
+
+
+
     // Config Position Closed Loop gains in slot0
     elevatorMotor.config_kP(0, 0.15, 0);
 	  elevatorMotor.config_kI(0, 0.0, 0);
