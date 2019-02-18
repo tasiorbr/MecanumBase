@@ -7,29 +7,30 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class CloseGripper extends Command {
-  public CloseGripper() {
+public class ElevatorManualMove extends Command {
+  public ElevatorManualMove() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.pneumaticSubsystem);
+    requires(Robot.elevatorSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kOff);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //This will turn on the solenoid (closing the grabber)
-    Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kForward);
-    
+    double manualMove = Robot.oi.gameStick.getRawAxis(0);
+ 
+    Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.PercentOutput, -manualMove); 
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -41,17 +42,11 @@ public class CloseGripper extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    //This should release the solenoid (opening the grabber) once the trigger is released
-    Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kOff);
-    Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kReverse);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-   //Not sure if this needs to be here, but it seemed like a good idea... 
-   Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kOff);
-   Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kReverse);
   }
 }

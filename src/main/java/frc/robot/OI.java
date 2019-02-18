@@ -13,10 +13,14 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.CloseGripper;
-import frc.robot.commands.GroundLevel;
 import frc.robot.commands.LiftBackward;
-import frc.robot.commands.SetElevatorLevel;
 import frc.robot.commands.LiftForward;
+import frc.robot.commands.MainPlateDown;
+import frc.robot.commands.MainPlateUp;
+import frc.robot.commands.PlatesDown;
+import frc.robot.commands.SecondaryPlateDown;
+import frc.robot.commands.SecondaryPlateUp;
+import frc.robot.commands.SetElevatorLevel;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -31,32 +35,23 @@ public class OI {
   public Joystick leftstick = new Joystick(RobotMap.leftcontrollerPort);
   public Joystick rightstick = new Joystick(RobotMap.rightcontrollerPort);
   public Joystick gameStick = new Joystick(RobotMap.gameStickPort);
-      //Cade added >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-      public Button strafeLeft = new JoystickButton(rightstick, 3);
-      public Button strafeRight = new JoystickButton(rightstick, 4);
-      //Jade added with Cade's help
-      public Button motorClockwise = new JoystickButton(rightstick, 1);
-      public Button motorCounterClockwise = new JoystickButton(rightstick, 2);
-      //Jade added
-     /* public Button firstLevel = new JoystickButton(rightstick, 5);
-      public Button secondLevel = new JoystickButton(rightstick, 6);
-      public Button thirdLevel = new JoystickButton(rightstick, 7);
-      public Button fourthLevel = new JoystickButton(rightstick, 8);
-      public Button fifthLevel = new JoystickButton(rightstick, 9);*/
-      //Shaddai added by looking at Cade's code
-      public Button firstLevel = new JoystickButton(gameStick, 4);
-      public Button secondLevel = new JoystickButton(gameStick, 9);
-      public Button thirdLevel = new JoystickButton(gameStick, 5);
-      public Button fourthLevel = new JoystickButton(gameStick, 11);
-      public Button fifthLevel = new JoystickButton(gameStick, 3);
+
+     
+      //Justin changed layout of the buttons
+      public Button levelOneHatch = new JoystickButton(gameStick, 11);
+      //public Button levelOneCargo = new JoystickButton(gameStick, 7);
+      public Button levelTwoHatch = new JoystickButton(gameStick, 5);
+      // public Button levelTwoCargo = new JoystickButton(gameStick, 12);
+      // public Button levelThreeHatch = new JoystickButton(gameStick, 9);
+      //public Button levelThreeCargo = new JoystickButton(gameStick, 10);
 
       public Button elevForward = new JoystickButton(gameStick, 8);
       public Button elevBackward = new JoystickButton(gameStick, 6);
 
-      public Button climbOne = new JoystickButton(gameStick, 10);
+      public Button climbOne = new JoystickButton(gameStick, 7);
       public Button climbTwo = new JoystickButton(gameStick, 12);
-      public Button climbThree = new JoystickButton(gameStick, 7);
-
+      public Button climbThree = new JoystickButton(gameStick, 10);
+      public Button climbFour = new JoystickButton(gameStick, 3);
   
 
       //Joel added - This sets the trigger on the left joystick as the button for the gripper
@@ -74,20 +69,23 @@ public class OI {
 
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
-    firstLevel.whenPressed(new GroundLevel());
-    SmartDashboard.putData("Level 1", new GroundLevel());   
+    levelOneHatch.whenPressed(new SetElevatorLevel(0));
+    SmartDashboard.putData("Level 1 Hatch", new SetElevatorLevel(0));   
     
-    secondLevel.whenPressed(new SetElevatorLevel(200));
-    SmartDashboard.putData("Level 2", new SetElevatorLevel(200));
+    //levelOneCargo.whenPressed(new SetElevatorLevel(200000));
+    SmartDashboard.putData("Level 1 Cargo", new SetElevatorLevel(200000));
     
-    thirdLevel.whenPressed(new SetElevatorLevel(400));
-    SmartDashboard.putData("Level 3", new SetElevatorLevel(400));
+    levelTwoHatch.whenPressed(new SetElevatorLevel(30000));
+    SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(300000));
     
-    fourthLevel.whenPressed(new SetElevatorLevel(600));
-    SmartDashboard.putData("Level 4", new SetElevatorLevel(600));
+    //levelTwoCargo.whenPressed(new SetElevatorLevel(400000));
+    SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(400000));
     
-    fifthLevel.whenPressed(new SetElevatorLevel(800));
-    SmartDashboard.putData("Level 5", new SetElevatorLevel(800));
+    //levelThreeHatch.whenPressed(new SetElevatorLevel(500000));
+    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(500000));
+
+    //levelThreeCargo.whenPressed(new SetElevatorLevel(600000));
+    SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(600000));
   
    //  Add remaining buttons above with the others then copy the above syntax and add remaining levels here
   
@@ -100,6 +98,14 @@ public class OI {
   //  Justin's Comment: This command will fire the command to move lift backward
   elevBackward.whenPressed(new LiftBackward());
 
+
+  climbOne.whenPressed(new MainPlateDown());
+
+  climbTwo.whenPressed(new SecondaryPlateDown());
+
+  climbThree.whenPressed(new MainPlateUp());
+
+  climbFour.whenPressed(new SecondaryPlateUp());
 
 
 

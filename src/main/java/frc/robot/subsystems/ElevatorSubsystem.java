@@ -7,50 +7,45 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-
-
 
 /**
  * Add your docs here.
+ * 
  */
-public class ElevatorSubsystem extends PIDSubsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    // instantiate new motor controller objects
-
-    public Spark elevatorEncoderMotor = new Spark(RobotMap.motorPortEncoder);
-    Encoder elevEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-
-    public Spark elevatorWinch = new Spark(RobotMap.motorPortElevator);
+public class ElevatorSubsystem extends Subsystem {
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+  public TalonSRX elevatorMotor = new TalonSRX(RobotMap.elevmotorCANID);
+ 
+  public ElevatorSubsystem () {
+  // Joel's comment:  Adding this section is what allows us to call the PneumaticSubsystem from other parts of the code
 
 
-    public ElevatorSubsystem() {
+  }
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+    
+    //Set the feedback device that is hooked up to the talon
+    elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+    
+    elevatorMotor.setInverted(true);
+    elevatorMotor.setSensorPhase(false);
+    elevatorMotor.configFactoryDefault();
+    elevatorMotor.setNeutralMode(NeutralMode.Brake);
+    
+    // Config Position Closed Loop gains in slot0
+    elevatorMotor.config_kP(0, 0.15, 0);
+	  elevatorMotor.config_kI(0, 0.0, 0);
+	  elevatorMotor.config_kD(0, 1.0, 0);
+    elevatorMotor.config_kF(0, 0.0, 0); 
+  }
 
-       
-     // The constructor passes a name for the subsystem and 
-     // the P, I and D constants that are used when computing the motor output 
-      super("ElevatorSubsystem", 2.0, 0.0, 0.0);
-      setAbsoluteTolerance(0.05);
-      getPIDController().setContinuous(false);
-      // No longer needed because setSetpoint is called in the command
-      //  setSetpoint(elevTarget);    
-    }
-
-      protected double returnPIDInput() {
-        // returns the encoder count
-        return elevEnc.get();
-      } 
-  
-      protected void usePIDOutput(double elevMotorTargetSpeed) {
-      // this is where the computed output value fromthe PIDController is applied to the motor
-        elevatorEncoderMotor.pidWrite(elevMotorTargetSpeed); 
-      }
-
-      public void initDefaultCommand() {
-      }
-  
 }

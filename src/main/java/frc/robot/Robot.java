@@ -29,11 +29,11 @@ import frc.robot.subsystems.PneumaticSubsystem;
  */
 public class Robot extends TimedRobot {
   //public static ExampleSubsystem subsystem = new ExampleSubsystem();
-  //public static OI oi;
+  public static OI oi;
   public static MecDriveSubsystem mecDriveSubsystem = new MecDriveSubsystem();
   public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
   public static PneumaticSubsystem pneumaticSubsystem = new PneumaticSubsystem();
-  public static OI oi;
+  
   //UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
 
 
@@ -51,9 +51,8 @@ public class Robot extends TimedRobot {
         // chooser.addOption("My Auto", new MyAutoCommand());
     
     SmartDashboard.putData("Auto mode", chooser);
-    SmartDashboard.putNumber("Target Value", Robot.elevatorSubsystem.getSetpoint());
-   // SmartDashboard.putNumber("Motor Speed", Robot.elevatorSubsystem.elevMotorTargetSpeed());
-  //  SmartDashboard.putNumber("Motor Speed", Robot.elevatorSubsystem.elevEnc.get());
+
+    Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
   
   }
 

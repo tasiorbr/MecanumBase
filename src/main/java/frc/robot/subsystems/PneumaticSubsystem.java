@@ -9,7 +9,6 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -19,32 +18,10 @@ public class PneumaticSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   Compressor c = new Compressor(0); 
-  public Solenoid gripperSolenoid = new Solenoid(0);
-  public DoubleSolenoid mainPlateDouble = new DoubleSolenoid(2, 3);
-  public DoubleSolenoid secondaryPlateDouble = new DoubleSolenoid(4, 5);
-  public DoubleSolenoid forwardBackwardDouble = new DoubleSolenoid(6, 7);
-
-/*  These will be pulled out of here and used in the vavious commands...
- 
-  mainPlateDouble.set(DoubleSolenoid.Value.kOff);
-  mainPlateDouble.set(DoubleSolenoid.Value.kForward);
-  mainPlateDouble.set(DoubleSolenoid.Value.kReverse);
-
-  secondaryPlate.set(DoubleSolenoid.Value.kOff);
-  secondaryPlate.set(DoubleSolenoid.Value.kForward);
-  secondaryPlate.set(DoubleSolenoid.Value.kReverse);
-
-  forwardBackwardDouble.set(DoubleSolenoid.Value.kOff);
-  forwardBackwardDouble.set(DoubleSolenoid.Value.kForward);
-  forwardBackwardDouble.set(DoubleSolenoid.Value.kRevrse);
-*/
-
-//Joel's comment - Per documentation I don't think these lines are needed anywhere... this is what it says:
-//Controlling the Compressor:
-//The PCM handles the closed loop control of the compressor internally when the pressure switch and compressor are properly wired. 
-//To enable this control, all that is needed is an instantiated Solenoid object and the robot to be Enabled.
-//  c.setClosedLoopControl(true);
-// c.setClosedLoopControl(false); 
+  public DoubleSolenoid gripperSolenoid = new DoubleSolenoid(7, 0);
+  public DoubleSolenoid mainPlateDouble = new DoubleSolenoid(5, 2);
+  public DoubleSolenoid secondaryPlateDouble = new DoubleSolenoid(1, 6);
+  public DoubleSolenoid forwardBackwardDouble = new DoubleSolenoid(3, 4);
 
 // Joel's comment:  Adding this section is what allows us to call the PneumaticSubsystem from other parts of the code
     public PneumaticSubsystem () {
