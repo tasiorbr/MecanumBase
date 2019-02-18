@@ -7,12 +7,15 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 //cade added >>>>>>>>>>>>>>>>>>>>>>>>>>>
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.CloseGripper;
+import frc.robot.commands.ElevatorManualMove;
 import frc.robot.commands.LiftBackward;
 import frc.robot.commands.LiftForward;
 import frc.robot.commands.MainPlateDown;
@@ -52,10 +55,14 @@ public class OI {
       public Button climbTwo = new JoystickButton(gameStick, 12);
       public Button climbThree = new JoystickButton(gameStick, 10);
       public Button climbFour = new JoystickButton(gameStick, 3);
-  
+
+
+      
 
       //Joel added - This sets the trigger on the left joystick as the button for the gripper
-      public Button grippertrigger = new JoystickButton(leftstick, 1);
+      public Button gripperTrigger = new JoystickButton(leftstick, 1);
+      
+      //public Button elevatorStick = new JoystickButton(gameStick, 0);
   
       public OI() {
 
@@ -70,27 +77,27 @@ public class OI {
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     levelOneHatch.whenPressed(new SetElevatorLevel(0));
-    SmartDashboard.putData("Level 1 Hatch", new SetElevatorLevel(0));   
+    //SmartDashboard.putData("Level 1 Hatch", new SetElevatorLevel(0));   
     
     //levelOneCargo.whenPressed(new SetElevatorLevel(200000));
-    SmartDashboard.putData("Level 1 Cargo", new SetElevatorLevel(200000));
+    //SmartDashboard.putData("Level 1 Cargo", new SetElevatorLevel(200000));
     
     levelTwoHatch.whenPressed(new SetElevatorLevel(30000));
-    SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(300000));
+    //SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(300000));
     
     //levelTwoCargo.whenPressed(new SetElevatorLevel(400000));
-    SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(400000));
+    //SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(400000));
     
-    //levelThreeHatch.whenPressed(new SetElevatorLevel(500000));
-    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(500000));
+    levelThreeHatch.whenPressed(new SetElevatorLevel(500000));
+    //SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(500000));
 
     //levelThreeCargo.whenPressed(new SetElevatorLevel(600000));
-    SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(600000));
+    //SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(600000));
   
    //  Add remaining buttons above with the others then copy the above syntax and add remaining levels here
   
   //  Joel's Comment:  This command will fire the command to close the gripper
-  grippertrigger.whileHeld(new CloseGripper());
+  gripperTrigger.whileHeld(new CloseGripper());
 
   //  Justin's Comment: This command will fire the command to move lift forward
   elevForward.whenPressed(new LiftForward());
@@ -107,6 +114,10 @@ public class OI {
 
   climbFour.whenPressed(new SecondaryPlateUp());
 
+  //  Joel's Comment:  This command will fire the command to manually move the lift
+  //elevatorStick.whileHeld(new ElevatorManualMove());
+  Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.PercentOutput, -gameStick.getRawAxis(0));
+    
 
 
 

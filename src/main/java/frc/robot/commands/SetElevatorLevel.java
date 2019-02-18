@@ -34,7 +34,7 @@ public class SetElevatorLevel extends Command {
 
     
     //Set the motor control mode and target value (for position target is in encloder 'ticks')
-    Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.Position, setElevLevelCommandSetpoint);
+    //Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.Position, setElevLevelCommandSetpoint);
     
     
     

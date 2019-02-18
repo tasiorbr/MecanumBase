@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -140,6 +142,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     chooser.setDefaultOption("Default Auto", new ManualDriveCartesian());
+    Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.PercentOutput, -Robot.oi.gameStick.getRawAxis(0));
     
   }
   

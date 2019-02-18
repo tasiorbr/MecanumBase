@@ -29,7 +29,7 @@ public class RobotMap {
    public static int motorPortFrontRight = 3;
    public static int motorPortRearLeft = 1;
    public static int motorPortRearRight = 2;
-   public static int motorPortElevator = 4;
+   //public static int motorPortElevator = 4;
    public static int motorPortCargoLeft = 5;
    public static int motorPortCargoRight = 6;
    public static int motorPortArmsUpDown = 7;
@@ -37,7 +37,7 @@ public class RobotMap {
    // PID
  
    // CAN
-   public static int elevmotorCANID = 0;
+   public static int elevmotorCANID = 4;
    public static int pcmACANID = 0;
    public static int pcmBCANID = 1;
  

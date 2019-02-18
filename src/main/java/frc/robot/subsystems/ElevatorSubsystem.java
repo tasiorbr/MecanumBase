@@ -45,7 +45,7 @@ public class ElevatorSubsystem extends Subsystem {
     elevatorMotor.configNominalOutputForward(0, 0);
 		elevatorMotor.configNominalOutputReverse(0, 0);
 		elevatorMotor.configPeakOutputForward(1, 0);
-    elevatorMotor.configPeakOutputReverse(-.5,0);
+    elevatorMotor.configPeakOutputReverse(-.2,0);
     
     //Set the PID Loop allowable error
     //Allowable error in "Native Units" (i.e. encoder 'ticks') for loop to be considered "On Target" 
