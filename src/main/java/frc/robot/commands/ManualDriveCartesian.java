@@ -26,7 +26,7 @@ public class ManualDriveCartesian extends Command {
   protected void execute() {
     double moveX = -0.7 * Robot.oi.leftstick.getRawAxis(1);
     double moveY =  Robot.oi.rightstick.getRawAxis(0);
-    double rotateZ = 0.4 * Robot.oi.rightstick.getRawAxis(2);
+    double rotateZ = 0.5 * Robot.oi.rightstick.getRawAxis(2);
 
     Robot.mecDriveSubsystem.driveC(moveY, moveX, rotateZ);
     

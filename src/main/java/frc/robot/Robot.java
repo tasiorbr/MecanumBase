@@ -9,18 +9,16 @@ package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.CameraServer;
-import frc.robot.commands.ElevatorManualMove;
 import frc.robot.commands.ManualDriveCartesian;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.MecDriveSubsystem;
 import frc.robot.subsystems.PneumaticSubsystem;
-
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -57,6 +55,9 @@ public class Robot extends TimedRobot {
     Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
 
     CameraServer.getInstance().startAutomaticCapture();
+    
+    /* Set the quadrature (relative) sensor to match absolute */
+	  Robot.elevatorSubsystem.elevatorMotor.setSelectedSensorPosition(0, 0, 0);
   }
 
   /**

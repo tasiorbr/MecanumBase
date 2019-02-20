@@ -21,6 +21,10 @@ import frc.robot.RobotMap;
 public class ElevatorSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+      /** Used to create string thoughout loop */
+  
+
+  
   public int allowablEror = 25000;
   public TalonSRX elevatorMotor = new TalonSRX(RobotMap.elevmotorCANID);
  
