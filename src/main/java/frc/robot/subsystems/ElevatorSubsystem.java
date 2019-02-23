@@ -11,6 +11,8 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -21,11 +23,6 @@ import frc.robot.RobotMap;
 public class ElevatorSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-      /** Used to create string thoughout loop */
-  
-
-  
-  public int allowablEror = 25000;
   public TalonSRX elevatorMotor = new TalonSRX(RobotMap.elevmotorCANID);
  
   public ElevatorSubsystem () {
@@ -54,7 +51,7 @@ public class ElevatorSubsystem extends Subsystem {
     
     //Set the PID Loop allowable error
     //Allowable error in "Native Units" (i.e. encoder 'ticks') for loop to be considered "On Target" 
-    elevatorMotor.configAllowableClosedloopError(0, allowablEror, 0);
+    elevatorMotor.configAllowableClosedloopError(0, 25000, 0);
     
 
 
