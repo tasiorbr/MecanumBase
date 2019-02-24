@@ -7,15 +7,15 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import frc.robot.commands.ManualDriveCartesian;
+
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.MecDriveSubsystem;
 import frc.robot.subsystems.PneumaticSubsystem;
@@ -129,7 +129,6 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
     chooser.setDefaultOption("Default Auto", new ManualDriveCartesian());
-    Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.PercentOutput, -Robot.oi.gameStick.getRawAxis(0));
     
   }
 
@@ -151,7 +150,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     chooser.setDefaultOption("Default Auto", new ManualDriveCartesian());
-    Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.PercentOutput, -Robot.oi.gameStick.getRawAxis(0));
+ 
     
   }
   

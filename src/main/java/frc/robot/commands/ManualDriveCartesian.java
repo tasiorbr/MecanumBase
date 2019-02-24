@@ -29,20 +29,22 @@ public class ManualDriveCartesian extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //  Use this section to drive with xbox controller
+    /*  Use this section to drive with xbox controller
     double moveX = -0.25 * Robot.oi.xboxController.getRawAxis(1);
     double moveY =  0.25 * Robot.oi.xboxController.getRawAxis(4);
     double rotateZ = 0.25 * (-Robot.oi.xboxController.getRawAxis(2) + Robot.oi.xboxController.getRawAxis(3));
+    */
    
-    /*  Use this section to drive with joysticks
+    /*  Use this section to drive with joysticks */
     double moveX = -0.7 * Robot.oi.leftstick.getRawAxis(1);
     double moveY =  Robot.oi.rightstick.getRawAxis(0);
     double rotateZ = 0.5 * Robot.oi.rightstick.getRawAxis(2);
-    */
+  
 
  
 
-    // This Section looks for button presses to overtide manual twist
+    // This Section looks for xbox controller button presses to overtide manual twist
+    // Needs to be updated to use buttons on the button box
     if(Robot.oi.xboxController.getRawButton(1) == true) {
       targetAngle = 180;
       snapToAngle = true;

@@ -8,10 +8,13 @@
 package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.CloseGripper;
+import frc.robot.commands.ElevatorManualMove;
 import frc.robot.commands.LiftBackward;
 import frc.robot.commands.LiftForward;
 import frc.robot.commands.MainPlateDown;
@@ -37,12 +40,23 @@ public class OI {
 
      
       //Justin changed layout of the buttons
+
+      public Button levelOneHatch = new JoystickButton(xboxController, 5);
+      public Button levelOneCargo = new JoystickButton(xboxController, 6);
+      public Button levelTwoHatch = new JoystickButton(xboxController, 7);
+      public Button levelTwoCargo = new JoystickButton(xboxController, 8);
+      //public Button levelThreeHatch = new JoystickButton(xboxController, 8);
+      //public Button levelThreeCargo = new JoystickButton(gameStick, 10);
+
+
+      /*
       public Button levelOneHatch = new JoystickButton(gameStick, 11);
       //public Button levelOneCargo = new JoystickButton(gameStick, 7);
       public Button levelTwoHatch = new JoystickButton(gameStick, 5);
       // public Button levelTwoCargo = new JoystickButton(gameStick, 12);
       public Button levelThreeHatch = new JoystickButton(gameStick, 9);
       //public Button levelThreeCargo = new JoystickButton(gameStick, 10);
+      */
 
       public Button elevForward = new JoystickButton(gameStick, 8);
       public Button elevBackward = new JoystickButton(gameStick, 6);
@@ -56,6 +70,8 @@ public class OI {
       public Button alignCargoShipRight = new JoystickButton(xboxController, 2);
       public Button alignCargoShipFront = new JoystickButton(xboxController, 4);
       public Button alignLoadingStation = new JoystickButton(xboxController, 1);
+
+
 
 
 
@@ -81,22 +97,32 @@ public class OI {
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     levelOneHatch.whenPressed(new SetElevatorLevel(0));
-    //SmartDashboard.putData("Level 1 Hatch", new SetElevatorLevel(0));   
+    SmartDashboard.putData("Level 1 Hatch", new SetElevatorLevel(0));   
     
-    //levelOneCargo.whenPressed(new SetElevatorLevel(200000));
-    //SmartDashboard.putData("Level 1 Cargo", new SetElevatorLevel(200000));
+    levelOneCargo.whenPressed(new SetElevatorLevel(200000));
+    SmartDashboard.putData("Level 1 Cargo", new SetElevatorLevel(200000));
     
-    levelTwoHatch.whenPressed(new SetElevatorLevel(30000));
-    //SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(300000));
+    levelTwoHatch.whenPressed(new SetElevatorLevel(300000));
+    SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(300000));
     
-    //levelTwoCargo.whenPressed(new SetElevatorLevel(400000));
-    //SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(400000));
+    levelTwoCargo.whenPressed(new SetElevatorLevel(400000));
+    SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(400000));
     
-    levelThreeHatch.whenPressed(new SetElevatorLevel(500000));
-    //SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(500000));
+    //levelThreeHatch.whenPressed(new SetElevatorLevel(500000));
+    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(500000));
 
     //levelThreeCargo.whenPressed(new SetElevatorLevel(600000));
-    //SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(600000));
+    SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(600000));
+
+    // Manual move using the Xbox Controller
+    if (xboxController.getPOV() != -1) {
+      new ElevatorManualMove();
+    };
+
+    // Manual move using the button box joystick
+    if (gameStick.getRawAxis(1) != 0) {
+      new ElevatorManualMove();
+    }
   
    //  Add remaining buttons above with the others then copy the above syntax and add remaining levels here
   
@@ -118,9 +144,7 @@ public class OI {
 
   climbFour.whenPressed(new SecondaryPlateUp());
 
-  //  Joel's Comment:  This command will fire the command to manually move the lift
-  //elevatorStick.whileHeld(new ElevatorManualMove());
-  Robot.elevatorSubsystem.elevatorMotor.set(ControlMode.PercentOutput, -gameStick.getRawAxis(0));
+
     
 
 
