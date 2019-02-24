@@ -10,9 +10,11 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
+
 import frc.robot.RobotMap;
 import frc.robot.commands.ManualDriveCartesian;
 
@@ -26,7 +28,7 @@ public class MecDriveSubsystem extends Subsystem {
   double rotateZCommanded = 0;
   double rotateError;
   double rotateErrorAllowable = 2;
-  double rotateP = 0.0003;
+  double rotateP = 0.001;
   
   // instantiate new motor controller objects 
   public CANSparkMax driveFrontLeft = new CANSparkMax(RobotMap.drivemotorFrontLeftCANID, MotorType.kBrushless);
@@ -35,7 +37,7 @@ public class MecDriveSubsystem extends Subsystem {
   public CANSparkMax driveFrontRight = new CANSparkMax(RobotMap.drivemotorFrontRightCANID, MotorType.kBrushless);
 
   // instantiate new gyro object
-  public AnalogGyro gyro1 = new AnalogGyro(RobotMap.gyroPort);
+  public ADXRS450_Gyro gyro1 = new ADXRS450_Gyro();
 
   // instantiate a new MecanumDrive object and assign motor controllers to it
   // Note:  no need to invert motors when using mecanum drive (mecanum drive takes care of it internally)
@@ -63,7 +65,7 @@ public class MecDriveSubsystem extends Subsystem {
    public void driveAngle(double moveY, double moveX, double targetAngle) {
       // This section checks the actual angle vs the desired angle and calculates how much twist to use
       rotateError = targetAngle - gyro1.getAngle();
-      if (rotateError > rotateErrorAllowable) {
+      if ( Math.abs(rotateError) > rotateErrorAllowable) {
         rotateZCommanded = rotateError * rotateP;
       }
       else rotateZCommanded = 0;

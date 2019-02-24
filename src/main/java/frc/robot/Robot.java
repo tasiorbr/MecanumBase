@@ -47,17 +47,23 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
+    
+    Robot.mecDriveSubsystem.gyro1.calibrate();
+    Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
+    
+    // Set the quadrature (relative) sensor to match absolute
+	  Robot.elevatorSubsystem.elevatorMotor.setSelectedSensorPosition(0, 0, 0);
+
+    CameraServer.getInstance().startAutomaticCapture();
+    
     chooser.setDefaultOption("Default Auto", new ManualDriveCartesian());
         // chooser.addOption("My Auto", new MyAutoCommand());
     
     SmartDashboard.putData("Auto mode", chooser);
 
-    Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
 
-    CameraServer.getInstance().startAutomaticCapture();
     
-    /* Set the quadrature (relative) sensor to match absolute */
-	  Robot.elevatorSubsystem.elevatorMotor.setSelectedSensorPosition(0, 0, 0);
+
   }
 
   /**
