@@ -8,23 +8,14 @@
 package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-
-import edu.wpi.first.wpilibj.GamepadBase;
-//cade added >>>>>>>>>>>>>>>>>>>>>>>>>>>
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.GenericHID.HIDType;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
-import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.CloseGripper;
-import frc.robot.commands.ElevatorManualMove;
 import frc.robot.commands.LiftBackward;
 import frc.robot.commands.LiftForward;
 import frc.robot.commands.MainPlateDown;
 import frc.robot.commands.MainPlateUp;
-import frc.robot.commands.PlatesDown;
 import frc.robot.commands.SecondaryPlateDown;
 import frc.robot.commands.SecondaryPlateUp;
 import frc.robot.commands.SetElevatorLevel;
@@ -66,10 +57,7 @@ public class OI {
       public Button alignCargoShipFront = new JoystickButton(xboxController, 4);
       public Button alignLoadingStation = new JoystickButton(xboxController, 1);
 
-      public Button alignLeftRocketFront = new JoystickButton(xboxController, 5);
-      public Button alignLeftRocketRear = new JoystickButton(xboxController, 7);
-      public Button alignRightRocketFront = new JoystickButton(xboxController, 6);
-      public Button alignRightRocketRear = new JoystickButton(xboxController, 8);
+
 
 
 
