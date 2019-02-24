@@ -34,13 +34,13 @@ public class ManualDriveCartesian extends Command {
     double moveY =  Robot.oi.rightstick.getRawAxis(0);
     double rotateZ = 0.5 * Robot.oi.rightstick.getRawAxis(2);
     */
-   
+    int loops = 0;
     double currentGyroAngle = Robot.mecDriveSubsystem.gyro1.getAngle();
     double targetGyroAngle = 0;
     double rotateZCommanded = 0;
     double rotateError;
     double rotateErrorAllowable = 2;
-    double rotateP = 0.03;
+    double rotateP = 0.0003;
     boolean snapAngle = false;
 
     if(Robot.oi.xboxController.getRawButton(1) == true) {
@@ -73,6 +73,15 @@ public class ManualDriveCartesian extends Command {
     if (snapAngle == false) {
       rotateZCommanded = rotateZ;
     }
+
+		/**
+		 * Print every ten loops, printing too much too fast is generally bad
+		 * for performance.
+		 */
+		if (++loops >= 10) {
+			loops = 0;
+			System.out.println(currentGyroAngle);
+		}
 
     Robot.mecDriveSubsystem.driveC(moveY, moveX, rotateZCommanded);
     

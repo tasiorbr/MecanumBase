@@ -43,7 +43,7 @@ public class RobotMap {
  
    // CAN
    // Drive Motor CAN IDs
-   public static int drivemotorFrontLeftCANID = 0;
+   public static int drivemotorFrontLeftCANID = 10;
    public static int drivemotorRearLeftCANID = 1;
    public static int drivemotorRearRightCANID = 2;
    public static int drivemotorFrontRightCANID = 3;

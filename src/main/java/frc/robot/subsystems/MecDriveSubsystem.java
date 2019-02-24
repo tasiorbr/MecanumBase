@@ -41,7 +41,7 @@ public class MecDriveSubsystem extends Subsystem {
        mDrive.setSafetyEnabled(false);
        // mDrive.setExpiration(0.1);
         mDrive.setMaxOutput(1.0);
-       // mDrive.setDeadband(0.05);
+        mDrive.setDeadband(0.05);
     }
 
 
