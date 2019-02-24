@@ -25,11 +25,16 @@ public class RobotMap {
   // public static int rangefinderModule = 1;
 
    // PWM Ports
+   /* Drive Motor PWM IDs - Not required because we switched to Spark Max (CAN based) controlers
    public static int motorPortFrontLeft = 0;
    public static int motorPortFrontRight = 3;
    public static int motorPortRearLeft = 1;
    public static int motorPortRearRight = 2;
+   */
+
+   //Elevator Motor PWM ID - Not required because we switched to Talon SRX
    //public static int motorPortElevator = 4;
+   
    public static int motorPortCargoLeft = 5;
    public static int motorPortCargoRight = 6;
    public static int motorPortArmsUpDown = 7;
@@ -37,7 +42,16 @@ public class RobotMap {
    // PID
  
    // CAN
+   // Drive Motor CAN IDs
+   public static int drivemotorFrontLeftCANID = 0;
+   public static int drivemotorRearLeftCANID = 1;
+   public static int drivemotorRearRightCANID = 2;
+   public static int drivemotorFrontRightCANID = 3;
+
+  // Elevator Motor CAN ID
    public static int elevmotorCANID = 4;
+  
+  // Pneumatic Control Module CAN IDs
    public static int pcmACANID = 0;
    public static int pcmBCANID = 1;
  
@@ -45,7 +59,16 @@ public class RobotMap {
      // Joystics and Controllers
      public static int leftcontrollerPort = 0;
      public static int rightcontrollerPort = 1;
-     public static int gameStickPort = 2; 
+     public static int gameStickPort = 2;
+     public static int xboxControllerPort = 3;
+
+     // Cameras
+     public static int camera1Port = 0;
+     public static int camera2Port = 0;
+
+  // Analog Ports
+  public static int gyroPort = 0;
+
 
 
 

@@ -7,8 +7,10 @@
 
 package frc.robot.subsystems;
 
-//import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.VictorSP;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.RobotMap;
@@ -22,15 +24,14 @@ public class MecDriveSubsystem extends Subsystem {
   // here. Call these from Commands.
   // instantiate new motor controller objects
 
-  /*public Spark driveFrontLeft = new Spark(RobotMap.motorPortFrontLeft);
-  public Spark driveFrontRight = new Spark(RobotMap.motorPortFrontRight);
-  public Spark driveRearLeft = new Spark(RobotMap.motorPortRearLeft);
-  public Spark driveRearRight = new Spark(RobotMap.motorPortRearRight);*/
+
   
-  public VictorSP driveFrontLeft = new VictorSP(RobotMap.motorPortFrontLeft);
-  public VictorSP driveFrontRight = new VictorSP(RobotMap.motorPortFrontRight);
-  public VictorSP driveRearLeft = new VictorSP(RobotMap.motorPortRearLeft);
-  public VictorSP driveRearRight = new VictorSP(RobotMap.motorPortRearRight);
+  public CANSparkMax driveFrontLeft = new CANSparkMax(RobotMap.drivemotorFrontLeftCANID, MotorType.kBrushless);
+  public CANSparkMax driveRearLeft = new CANSparkMax(RobotMap.drivemotorRearLeftCANID, MotorType.kBrushless);
+  public CANSparkMax driveRearRight = new CANSparkMax(RobotMap.drivemotorRearRightCANID, MotorType.kBrushless);
+  public CANSparkMax driveFrontRight = new CANSparkMax(RobotMap.drivemotorFrontRightCANID, MotorType.kBrushless);
+
+  public AnalogGyro gyro1 = new AnalogGyro(RobotMap.gyroPort);
 
   // instantiate a new MecanumDrive object and assign motor controllers to it
   // Note:  If motor controllers need to be inverted, do that first (or as part of the the joystick call)

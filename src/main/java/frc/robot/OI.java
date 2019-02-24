@@ -9,8 +9,12 @@ package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
+import edu.wpi.first.wpilibj.GamepadBase;
 //cade added >>>>>>>>>>>>>>>>>>>>>>>>>>>
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.GenericHID.HIDType;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -38,6 +42,7 @@ public class OI {
   public Joystick leftstick = new Joystick(RobotMap.leftcontrollerPort);
   public Joystick rightstick = new Joystick(RobotMap.rightcontrollerPort);
   public Joystick gameStick = new Joystick(RobotMap.gameStickPort);
+  public Joystick xboxController = new Joystick(RobotMap.xboxControllerPort);
 
      
       //Justin changed layout of the buttons
@@ -55,6 +60,17 @@ public class OI {
       public Button climbTwo = new JoystickButton(gameStick, 12);
       public Button climbThree = new JoystickButton(gameStick, 10);
       public Button climbFour = new JoystickButton(gameStick, 3);
+
+      public Button alignCargoShipLeft = new JoystickButton(xboxController, 3);
+      public Button alignCargoShipRight = new JoystickButton(xboxController, 2);
+      public Button alignCargoShipFront = new JoystickButton(xboxController, 4);
+      public Button alignLoadingStation = new JoystickButton(xboxController, 1);
+
+      public Button alignLeftRocketFront = new JoystickButton(xboxController, 5);
+      public Button alignLeftRocketRear = new JoystickButton(xboxController, 7);
+      public Button alignRightRocketFront = new JoystickButton(xboxController, 6);
+      public Button alignRightRocketRear = new JoystickButton(xboxController, 8);
+
 
 
       

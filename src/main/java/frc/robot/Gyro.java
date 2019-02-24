@@ -16,13 +16,13 @@ import edu.wpi.first.wpilibj.RobotDrive;
 public class Gyro {
 
     private RobotDrive mDrive;
-    private Gyro gyro;
+    private AnalogGyro gyro1;
 
     double Kp = 0.03;
 
     public Gyro() {
         //I'm not sure why there is an error here
-        gyro = new AnalogGyro(1);
+        gyro1 = new AnalogGyro(1);
         /* 
         The RobotDrive command will have to be changed because it is expecting a Talon controller 
         with PWM but we are using the new sparkMax motor controllers 

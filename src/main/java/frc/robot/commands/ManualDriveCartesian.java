@@ -27,6 +27,9 @@ public class ManualDriveCartesian extends Command {
     double moveX = -0.7 * Robot.oi.leftstick.getRawAxis(1);
     double moveY =  Robot.oi.rightstick.getRawAxis(0);
     double rotateZ = 0.5 * Robot.oi.rightstick.getRawAxis(2);
+    double currentGyroAngle = Robot.mecDriveSubsystem.gyro1.getAngle();
+
+    if Robot.oi.alignCargoShipFront.get. 
 
     Robot.mecDriveSubsystem.driveC(moveY, moveX, rotateZ);
     
