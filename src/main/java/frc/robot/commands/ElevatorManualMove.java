@@ -21,8 +21,8 @@ public class ElevatorManualMove extends Command {
   @Override
   protected void initialize() {
     
-    Robot.elevatorSubsystem.elevatorMotor.configPeakOutputForward(.2, 0);
-    Robot.elevatorSubsystem.elevatorMotor.configPeakOutputReverse(-.2,0);
+    Robot.elevatorSubsystem.elevatorMotor.configPeakOutputForward(.8, 0);
+    Robot.elevatorSubsystem.elevatorMotor.configPeakOutputReverse(-.3,0);
 
   }
 
@@ -31,21 +31,9 @@ public class ElevatorManualMove extends Command {
   protected void execute() {
     double manualMove = 0;
     //  Use this section to use the joystick on the button box
-    //  manualMove = -Robot.oi.gameStick.getRawAxis(0);
+      manualMove = -Robot.oi.gameStick.getRawAxis(0);
     
-    //  Use this section to use the arrow pad on the xbox controller
-    double povAngle = Robot.oi.xboxController.getPOV();
-      if (povAngle == 325 | povAngle == 0 | povAngle == 45) {
-        manualMove = 1;
-      }
-
-      if (povAngle == 135 | povAngle == 180 | povAngle == 225) {
-        manualMove = -1;
-      }
-      
-      if (povAngle == -1) {
-        manualMove = 0;
-      }
+   
 
 
     Robot.elevatorSubsystem.elevManualPosition(manualMove);

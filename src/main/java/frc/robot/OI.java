@@ -7,8 +7,6 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -19,6 +17,7 @@ import frc.robot.commands.LiftBackward;
 import frc.robot.commands.LiftForward;
 import frc.robot.commands.MainPlateDown;
 import frc.robot.commands.MainPlateUp;
+import frc.robot.commands.ManualDriveCartesian;
 import frc.robot.commands.SecondaryPlateDown;
 import frc.robot.commands.SecondaryPlateUp;
 import frc.robot.commands.SetElevatorLevel;
@@ -72,13 +71,7 @@ public class OI {
       public Button alignLoadingStation = new JoystickButton(xboxController, 1);
 
 
-
-
-
-
-
       
-
       //Joel added - This sets the trigger on the left joystick as the button for the gripper
       public Button gripperTrigger = new JoystickButton(rightstick, 1);
       
@@ -114,10 +107,11 @@ public class OI {
     //levelThreeCargo.whenPressed(new SetElevatorLevel(600000));
     SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(600000));
 
-    // Manual move using the Xbox Controller
+    /* Manual move using the Xbox Controller
     if (xboxController.getPOV() != -1) {
       new ElevatorManualMove();
     };
+    */
 
     // Manual move using the button box joystick
     if (gameStick.getRawAxis(1) != 0) {
@@ -143,10 +137,6 @@ public class OI {
   climbThree.whenPressed(new MainPlateUp());
 
   climbFour.whenPressed(new SecondaryPlateUp());
-
-
-    
-
 
 
   }

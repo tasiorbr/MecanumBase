@@ -69,8 +69,4 @@ public class RobotMap {
   // Analog Ports
   public static int gyroPort = 0;
 
-
-
-
-
 }

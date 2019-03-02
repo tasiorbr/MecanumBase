@@ -39,33 +39,54 @@ public class ManualDriveCartesian extends Command {
     double moveX = -0.7 * Robot.oi.leftstick.getRawAxis(1);
     double moveY =  Robot.oi.rightstick.getRawAxis(0);
     double rotateZ = 0.5 * Robot.oi.rightstick.getRawAxis(2);
+    double hatAngle = Robot.oi.rightstick.getPOV();
   
 
  
 
-    // This Section looks for xbox controller button presses to overtide manual twist
-    // Needs to be updated to use buttons on the button box
-    if(Robot.oi.xboxController.getRawButton(1) == true) {
-      targetAngle = 180;
-      snapToAngle = true;
-    };
-
-    if(Robot.oi.xboxController.getRawButton(2) == true) {
-      targetAngle = 270;
-      snapToAngle = true;
-    };
-
-    if(Robot.oi.xboxController.getRawButton(3) == true) {
-      targetAngle = 90;
-      snapToAngle = true;
-    };
-
-    if(Robot.oi.xboxController.getRawButton(4) == true) {
+    // This Section looks for joystic pov hat button presses to over ride manual twist
+   
+    if(hatAngle == 0) {
       targetAngle = 0;
       snapToAngle = true;
     };
 
+    if(hatAngle == 45) {
+      targetAngle = 28.75;
+      snapToAngle = true;
+    };
+
+    if(hatAngle == 90) {
+      targetAngle = 90;
+      snapToAngle = true;
+    };
+
+ if(hatAngle == 135) {
+      targetAngle = 118.75;
+      snapToAngle = true;
+    };
     
+    if(hatAngle == 180) {
+      targetAngle = 180;
+      snapToAngle = true;
+    };
+
+    if(hatAngle == 225) {
+      targetAngle = 151.25;
+      snapToAngle = true;
+    };
+
+    if(hatAngle == 270) {
+      targetAngle = 270;
+      snapToAngle = true;
+    };
+
+    if(hatAngle == 315) {
+      targetAngle = 298.75;
+      snapToAngle = true;
+    };
+
+
     // This section checks the actual angle vs the desired angle and calculates how much twist to use
     if (snapToAngle == true) {
       Robot.mecDriveSubsystem.driveAngle(moveY, moveX, targetAngle);
