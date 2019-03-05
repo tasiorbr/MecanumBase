@@ -27,16 +27,18 @@ public class ElevatorSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public TalonSRX elevatorMotor = new TalonSRX(RobotMap.elevmotorCANID);
- 
+   
   
   // Joel's comment:  Adding this section is what allows us to call the Subsystem from other parts of the code
 
   public void elevSetToPosition(double setElevLevelCommandSetpoint) {
       elevatorMotor.set(ControlMode.Position, setElevLevelCommandSetpoint);
+      
   };
 
   public void elevManualPosition(double manualMove) {
       elevatorMotor.set(ControlMode.PercentOutput, manualMove);
+      
   };
 
   

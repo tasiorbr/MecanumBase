@@ -28,6 +28,7 @@ public class CloseGripper extends Command {
   @Override
   protected void execute() {
     //This will turn on the solenoid (closing the grabber)
+    Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kOff);
     Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kForward);
     
   }

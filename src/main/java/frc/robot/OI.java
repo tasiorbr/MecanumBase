@@ -35,41 +35,43 @@ public class OI {
   public Joystick leftstick = new Joystick(RobotMap.leftcontrollerPort);
   public Joystick rightstick = new Joystick(RobotMap.rightcontrollerPort);
   public Joystick gameStick = new Joystick(RobotMap.gameStickPort);
-  public Joystick xboxController = new Joystick(RobotMap.xboxControllerPort);
+  //public Joystick xboxController = new Joystick(RobotMap.xboxControllerPort);
 
      
       //Justin changed layout of the buttons
 
+      /*
       public Button levelOneHatch = new JoystickButton(xboxController, 5);
       public Button levelOneCargo = new JoystickButton(xboxController, 6);
       public Button levelTwoHatch = new JoystickButton(xboxController, 7);
       public Button levelTwoCargo = new JoystickButton(xboxController, 8);
       //public Button levelThreeHatch = new JoystickButton(xboxController, 8);
       //public Button levelThreeCargo = new JoystickButton(gameStick, 10);
-
-
-      /*
-      public Button levelOneHatch = new JoystickButton(gameStick, 11);
-      //public Button levelOneCargo = new JoystickButton(gameStick, 7);
-      public Button levelTwoHatch = new JoystickButton(gameStick, 5);
-      // public Button levelTwoCargo = new JoystickButton(gameStick, 12);
-      public Button levelThreeHatch = new JoystickButton(gameStick, 9);
-      //public Button levelThreeCargo = new JoystickButton(gameStick, 10);
       */
+
+      
+      public Button levelOneHatch = new JoystickButton(gameStick, 11);
+      public Button levelOneCargo = new JoystickButton(gameStick, 7);
+      public Button levelTwoHatch = new JoystickButton(gameStick, 5);
+      public Button levelTwoCargo = new JoystickButton(gameStick, 12);
+      public Button levelThreeHatch = new JoystickButton(gameStick, 9);
+      public Button levelThreeCargo = new JoystickButton(gameStick, 10);
+      
 
       public Button elevForward = new JoystickButton(gameStick, 8);
       public Button elevBackward = new JoystickButton(gameStick, 6);
 
-      public Button climbOne = new JoystickButton(gameStick, 7);
-      public Button climbTwo = new JoystickButton(gameStick, 12);
-      public Button climbThree = new JoystickButton(gameStick, 10);
+     // public Button climbOne = new JoystickButton(gameStick, 7);
+     // public Button climbTwo = new JoystickButton(gameStick, 12);
+     // public Button climbThree = new JoystickButton(gameStick, 10);
       public Button climbFour = new JoystickButton(gameStick, 3);
 
+      /*
       public Button alignCargoShipLeft = new JoystickButton(xboxController, 3);
       public Button alignCargoShipRight = new JoystickButton(xboxController, 2);
       public Button alignCargoShipFront = new JoystickButton(xboxController, 4);
       public Button alignLoadingStation = new JoystickButton(xboxController, 1);
-
+      */
 
       
       //Joel added - This sets the trigger on the left joystick as the button for the gripper
@@ -101,10 +103,10 @@ public class OI {
     levelTwoCargo.whenPressed(new SetElevatorLevel(400000));
     SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(400000));
     
-    //levelThreeHatch.whenPressed(new SetElevatorLevel(500000));
+    levelThreeHatch.whenPressed(new SetElevatorLevel(500000));
     SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(500000));
 
-    //levelThreeCargo.whenPressed(new SetElevatorLevel(600000));
+    levelThreeCargo.whenPressed(new SetElevatorLevel(600000));
     SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(600000));
 
     /* Manual move using the Xbox Controller
@@ -129,7 +131,7 @@ public class OI {
   //  Justin's Comment: This command will fire the command to move lift backward
   elevBackward.whenPressed(new LiftBackward());
 
-
+/*
   climbOne.whenPressed(new MainPlateDown());
 
   climbTwo.whenPressed(new SecondaryPlateDown());
@@ -137,6 +139,7 @@ public class OI {
   climbThree.whenPressed(new MainPlateUp());
 
   climbFour.whenPressed(new SecondaryPlateUp());
+*/
 
 
   }

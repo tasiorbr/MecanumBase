@@ -18,10 +18,15 @@ public class PneumaticSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   Compressor c = new Compressor(0); 
+ 
+
+ 
+// Joel's comments:  updated wiring on practace 'bot to be the same as 'real' 'bot
   public DoubleSolenoid gripperSolenoid = new DoubleSolenoid(7, 0);
   public DoubleSolenoid mainPlateDouble = new DoubleSolenoid(5, 2);
   public DoubleSolenoid secondaryPlateDouble = new DoubleSolenoid(1, 6);
   public DoubleSolenoid forwardBackwardDouble = new DoubleSolenoid(3, 4);
+
 
 // Joel's comment:  Adding this section is what allows us to call the PneumaticSubsystem from other parts of the code
     public PneumaticSubsystem () {

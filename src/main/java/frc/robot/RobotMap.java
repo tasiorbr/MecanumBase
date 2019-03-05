@@ -60,7 +60,7 @@ public class RobotMap {
      public static int leftcontrollerPort = 0;
      public static int rightcontrollerPort = 1;
      public static int gameStickPort = 2;
-     public static int xboxControllerPort = 3;
+     //public static int xboxControllerPort = 3;
 
      // Cameras
      public static int camera1Port = 0;

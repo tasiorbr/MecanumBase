@@ -25,7 +25,7 @@ public class MecDriveSubsystem extends Subsystem {
 
   double rotateZCommanded = 0;
   double rotateError;
-  double rotateErrorAllowable = 2;
+  double rotateErrorAllowable = 1;
   double rotateP = 0.001;
   
   // instantiate new motor controller objects 
@@ -64,7 +64,7 @@ public class MecDriveSubsystem extends Subsystem {
       // This section checks the actual angle vs the desired angle and calculates how much twist to use
       rotateError = targetAngle - gyro1.getAngle();
       if ( Math.abs(rotateError) > rotateErrorAllowable) {
-        rotateZCommanded = rotateError * rotateP;
+        rotateZCommanded = rotateError * rotateP + 0.15;
       }
       else rotateZCommanded = 0;
     mDrive.driveCartesian(moveY, moveX, rotateZCommanded);   
