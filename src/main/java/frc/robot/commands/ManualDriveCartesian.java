@@ -38,7 +38,7 @@ public class ManualDriveCartesian extends Command {
     /*  Use this section to drive with joysticks */
     double moveX = -0.7 * Robot.oi.leftstick.getRawAxis(1);
     double moveY =  Robot.oi.rightstick.getRawAxis(0);
-    double rotateZ = 0.5 * Robot.oi.rightstick.getRawAxis(2);
+    double rotateZ = 0.3 * Robot.oi.rightstick.getRawAxis(2);
     double hatAngle = Robot.oi.rightstick.getPOV();
   
 

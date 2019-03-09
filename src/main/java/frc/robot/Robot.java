@@ -50,6 +50,7 @@ public class Robot extends TimedRobot {
     
     Robot.mecDriveSubsystem.gyro1.calibrate();
     Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
+    Robot.elevatorSubsystem.elevatorMotor.setInverted(false);
     
     // Set the quadrature (relative) sensor to match absolute
 	  Robot.elevatorSubsystem.elevatorMotor.setSelectedSensorPosition(0, 0, 0);

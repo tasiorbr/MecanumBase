@@ -103,11 +103,11 @@ public class OI {
     levelTwoCargo.whenPressed(new SetElevatorLevel(400000));
     SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(400000));
     
-    levelThreeHatch.whenPressed(new SetElevatorLevel(500000));
-    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(500000));
+    levelThreeHatch.whenPressed(new SetElevatorLevel(1100000));
+    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(1100000));
 
-    levelThreeCargo.whenPressed(new SetElevatorLevel(600000));
-    SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(600000));
+    levelThreeCargo.whenPressed(new SetElevatorLevel(1200000));
+    SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(1200000));
 
     /* Manual move using the Xbox Controller
     if (xboxController.getPOV() != -1) {
