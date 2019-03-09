@@ -7,6 +7,9 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -49,6 +52,9 @@ public class Robot extends TimedRobot {
     Robot.mecDriveSubsystem.gyro1.calibrate();
     Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
     Robot.elevatorSubsystem.elevatorMotor.setInverted(false);
+    Robot.elevatorSubsystem.elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+    Robot.elevatorSubsystem.elevatorMotor.setSensorPhase(false);
+    Robot.elevatorSubsystem.elevatorMotor.setNeutralMode(NeutralMode.Brake);
     
     // Set the quadrature (relative) sensor to match absolute
 	  Robot.elevatorSubsystem.elevatorMotor.setSelectedSensorPosition(0, 0, 0);

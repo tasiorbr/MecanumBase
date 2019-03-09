@@ -73,11 +73,17 @@ public class MecDriveSubsystem extends Subsystem {
       newTargetAngle = targetAngle + (360 * numberOfTurns);
       newRotateError = newTargetAngle - actualAngle;
 
-      if ( Math.abs(newTargetAngle - actualAngle) > 180 ) {
-        newTargetAngle = newTargetAngle + 360;
+      if ( newTargetAngle - actualAngle  > 180 ) {
+        newTargetAngle = newTargetAngle - 360;
+        newRotateError = newTargetAngle - actualAngle;
       }
 
-      if ( Math.abs(rotateError) > rotateErrorAllowable) {
+      if ( newTargetAngle - actualAngle  < 180 ) {
+        newTargetAngle = newTargetAngle + 360;
+        newRotateError = newTargetAngle - actualAngle;
+      }
+
+      if ( Math.abs(newRotateError) > rotateErrorAllowable) {
         rotateZCommanded = newRotateError * rotateP + 0.15;
       }
       else rotateZCommanded = 0;

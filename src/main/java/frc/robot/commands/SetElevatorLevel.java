@@ -7,9 +7,6 @@
 
 package frc.robot.commands;
 
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -33,18 +30,13 @@ public class SetElevatorLevel extends Command {
   @Override
   protected void initialize() {
 
-            //Set the feedback device that is hooked up to the talon
-            Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
+            //Basline Startup initialization (inverted, sensor config, etc.) is in Robot.java
 
-            Robot.elevatorSubsystem.elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-    
-            Robot.elevatorSubsystem.elevatorMotor.setSensorPhase(false);
-                        
-            Robot.elevatorSubsystem.elevatorMotor.setNeutralMode(NeutralMode.Brake);
             
             //Set Limites for Motor
-            //Robot.elevatorSubsystem.elevatorMotor.configNominalOutputForward(0, 0);
-            //Robot.elevatorSubsystem.elevatorMotor.configNominalOutputReverse(0, 0);
+                // These two don't seem to be needed
+                //Robot.elevatorSubsystem.elevatorMotor.configNominalOutputForward(0, 0);
+                //Robot.elevatorSubsystem.elevatorMotor.configNominalOutputReverse(0, 0);
             // peak output forward reduced for testing without the lift
             Robot.elevatorSubsystem.elevatorMotor.configPeakOutputForward(1.0, 0);
             Robot.elevatorSubsystem.elevatorMotor.configPeakOutputReverse(-.3,0);
