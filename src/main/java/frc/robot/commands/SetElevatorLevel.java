@@ -47,7 +47,7 @@ public class SetElevatorLevel extends Command {
         
         
             // Config Position Closed Loop gains in slot0
-            Robot.elevatorSubsystem.elevatorMotor.config_kP(0, 1.0, 0);
+            Robot.elevatorSubsystem.elevatorMotor.config_kP(0, 0.5, 0);
             Robot.elevatorSubsystem.elevatorMotor.config_kI(0, 0.0, 0);
             Robot.elevatorSubsystem.elevatorMotor.config_kD(0, 1.0, 0);
             Robot.elevatorSubsystem.elevatorMotor.config_kF(0, 0.0, 0);
