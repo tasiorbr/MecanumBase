@@ -17,7 +17,6 @@ import frc.robot.commands.ManualDriveCartesian;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.MecDriveSubsystem;
 import frc.robot.subsystems.PneumaticSubsystem;
-import com.ctre.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the

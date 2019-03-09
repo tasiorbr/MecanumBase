@@ -15,11 +15,6 @@ import frc.robot.commands.CloseGripper;
 import frc.robot.commands.ElevatorManualMove;
 import frc.robot.commands.LiftBackward;
 import frc.robot.commands.LiftForward;
-import frc.robot.commands.MainPlateDown;
-import frc.robot.commands.MainPlateUp;
-import frc.robot.commands.ManualDriveCartesian;
-import frc.robot.commands.SecondaryPlateDown;
-import frc.robot.commands.SecondaryPlateUp;
 import frc.robot.commands.SetElevatorLevel;
 
 /**
