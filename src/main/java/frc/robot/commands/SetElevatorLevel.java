@@ -34,20 +34,20 @@ public class SetElevatorLevel extends Command {
   protected void initialize() {
 
             //Set the feedback device that is hooked up to the talon
-        
+            Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
+
             Robot.elevatorSubsystem.elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
     
-            Robot.elevatorSubsystem.elevatorMotor.setInverted(true);
             Robot.elevatorSubsystem.elevatorMotor.setSensorPhase(false);
-            Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
+                        
             Robot.elevatorSubsystem.elevatorMotor.setNeutralMode(NeutralMode.Brake);
             
             //Set Limites for Motor
-            Robot.elevatorSubsystem.elevatorMotor.configNominalOutputForward(0, 0);
-            Robot.elevatorSubsystem.elevatorMotor.configNominalOutputReverse(0, 0);
+            //Robot.elevatorSubsystem.elevatorMotor.configNominalOutputForward(0, 0);
+            //Robot.elevatorSubsystem.elevatorMotor.configNominalOutputReverse(0, 0);
             // peak output forward reduced for testing without the lift
-            Robot.elevatorSubsystem.elevatorMotor.configPeakOutputForward(.2, 0);
-            Robot.elevatorSubsystem.elevatorMotor.configPeakOutputReverse(-.2,0);
+            Robot.elevatorSubsystem.elevatorMotor.configPeakOutputForward(1.0, 0);
+            Robot.elevatorSubsystem.elevatorMotor.configPeakOutputReverse(-.3,0);
             
             //Set the PID Loop allowable error
             //Allowable error in "Native Units" (i.e. encoder 'ticks') for loop to be considered "On Target" 
@@ -55,7 +55,7 @@ public class SetElevatorLevel extends Command {
         
         
             // Config Position Closed Loop gains in slot0
-            Robot.elevatorSubsystem.elevatorMotor.config_kP(0, 0.15, 0);
+            Robot.elevatorSubsystem.elevatorMotor.config_kP(0, 1.0, 0);
             Robot.elevatorSubsystem.elevatorMotor.config_kI(0, 0.0, 0);
             Robot.elevatorSubsystem.elevatorMotor.config_kD(0, 1.0, 0);
             Robot.elevatorSubsystem.elevatorMotor.config_kF(0, 0.0, 0);
@@ -70,8 +70,8 @@ public class SetElevatorLevel extends Command {
     
     Robot.elevatorSubsystem.elevSetToPosition(setElevLevelCommandSetpoint);
 
-    if (Robot.elevatorSubsystem.elevatorMotor.getClosedLoopError() < allowableError) {
-     setTimeout(7);   
+    if (setElevLevelCommandSetpoint == 0 &  Robot.elevatorSubsystem.elevatorMotor.getClosedLoopError() < allowableError) {
+     setTimeout(3);   
     }
     
     }

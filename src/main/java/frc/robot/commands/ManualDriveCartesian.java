@@ -86,6 +86,50 @@ public class ManualDriveCartesian extends Command {
       snapToAngle = true;
     };
 
+    // This Section looks for joystic top button presses to over ride manual twist
+   
+    if (Robot.oi.alignCargoShipFront.get()) {
+      targetAngle = 0;
+      snapToAngle = true;
+    };
+
+    if(Robot.oi.alignRocketRightFront.get()) {
+      targetAngle = 28.75;
+      snapToAngle = true;
+    };
+
+    if(Robot.oi.alignCargoShipLeft.get()) {
+      targetAngle = 90;
+      snapToAngle = true;
+    };
+
+    if(Robot.oi.alignRocketRightRear.get()) {
+      targetAngle = 118.75;
+      snapToAngle = true;
+    };
+    
+    if(Robot.oi.alignLoadingStation.get()) {
+      targetAngle = 180;
+      snapToAngle = true;
+    };
+
+    if(Robot.oi.alignRocketLeftRear.get()) {
+      targetAngle = 151.25;
+      snapToAngle = true;
+    };
+
+    if(Robot.oi.alignCargoShipRight.get()) {
+      targetAngle = 270;
+      snapToAngle = true;
+    };
+
+    if(Robot.oi.alignRocketLeftFront.get()) {
+      targetAngle = 298.75;
+      snapToAngle = true;
+    };
+
+
+
 
     // This section checks the actual angle vs the desired angle and calculates how much twist to use
     if (snapToAngle == true) {

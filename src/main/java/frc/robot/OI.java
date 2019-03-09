@@ -61,12 +61,16 @@ public class OI {
      // public Button climbThree = new JoystickButton(gameStick, 10);
       public Button climbFour = new JoystickButton(gameStick, 3);
 
-      /*
-      public Button alignCargoShipLeft = new JoystickButton(xboxController, 3);
-      public Button alignCargoShipRight = new JoystickButton(xboxController, 2);
-      public Button alignCargoShipFront = new JoystickButton(xboxController, 4);
-      public Button alignLoadingStation = new JoystickButton(xboxController, 1);
-      */
+      public Button alignCargoShipFront = new JoystickButton(leftstick, 3);
+      public Button alignLoadingStation = new JoystickButton(leftstick, 4);      
+      public Button alignCargoShipLeft = new JoystickButton(leftstick, 5);
+      public Button alignCargoShipRight = new JoystickButton(leftstick, 6);
+
+      public Button alignRocketRightFront = new JoystickButton(rightstick, 3);
+      public Button alignRocketLeftFront = new JoystickButton(rightstick, 4);      
+      public Button alignRocketRightRear = new JoystickButton(rightstick, 5);
+      public Button alignRocketLeftRear = new JoystickButton(rightstick, 6);
+      
 
       
       //Joel added - This sets the trigger on the left joystick as the button for the gripper
@@ -92,17 +96,17 @@ public class OI {
     levelOneCargo.whenPressed(new SetElevatorLevel(200000));
     SmartDashboard.putData("Level 1 Cargo", new SetElevatorLevel(200000));
     
-    levelTwoHatch.whenPressed(new SetElevatorLevel(300000));
-    SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(300000));
+    levelTwoHatch.whenPressed(new SetElevatorLevel(550000));
+    SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(550000));
     
-    levelTwoCargo.whenPressed(new SetElevatorLevel(400000));
-    SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(400000));
+    levelTwoCargo.whenPressed(new SetElevatorLevel(600000));
+    SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(600000));
     
-    levelThreeHatch.whenPressed(new SetElevatorLevel(1100000));
-    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(1100000));
+    levelThreeHatch.whenPressed(new SetElevatorLevel(1050000));
+    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(1050000));
 
-    levelThreeCargo.whenPressed(new SetElevatorLevel(1200000));
-    SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(1200000));
+    levelThreeCargo.whenPressed(new SetElevatorLevel(1080000));
+    SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(1080000));
 
     /* Manual move using the Xbox Controller
     if (xboxController.getPOV() != -1) {

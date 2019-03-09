@@ -26,7 +26,7 @@ public class MecDriveSubsystem extends Subsystem {
   double rotateZCommanded = 0;
   double rotateError;
   double rotateErrorAllowable = 0.5;
-  double rotateP = 0.001;
+  double rotateP = 0.005;
   double newTargetAngle;
   double actualAngle;
   double newRotateError;
@@ -64,8 +64,9 @@ public class MecDriveSubsystem extends Subsystem {
 
    // add manualDrive() method with override to drive at an angle 
    // public void driveCartesian​(double ySpeed, double xSpeed, double zRotation)
-   public void driveAngle(double moveY, double moveX, double targetAngle) {
+   public void driveAngle(double moveY, double moveX, double targetAngle) { 
       // This section checks the actual angle vs the desired angle and calculates how much twist to use
+      
       actualAngle = gyro1.getAngle();
       rotateError = targetAngle - actualAngle;
       numberOfTurns = (int) (actualAngle / 360);
@@ -75,13 +76,14 @@ public class MecDriveSubsystem extends Subsystem {
       if ( Math.abs(newTargetAngle - actualAngle) > 180 ) {
         newTargetAngle = newTargetAngle + 360;
       }
-      
+
       if ( Math.abs(rotateError) > rotateErrorAllowable) {
         rotateZCommanded = newRotateError * rotateP + 0.15;
       }
       else rotateZCommanded = 0;
     mDrive.driveCartesian(moveY, moveX, rotateZCommanded);   
    }
+
 
  
   @Override
