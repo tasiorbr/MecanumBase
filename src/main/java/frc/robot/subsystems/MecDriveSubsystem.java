@@ -9,12 +9,10 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.sun.jdi.IntegerValue;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.ManualDriveCartesian;
 
@@ -30,6 +28,8 @@ public class MecDriveSubsystem extends Subsystem {
   double rotateErrorAllowable = 0.5;
   double rotateP = 0.001;
   double newTargetAngle;
+  double actualAngle;
+  double newRotateError;
   int numberOfTurns;
 
   // instantiate new motor controller objects 
@@ -66,11 +66,11 @@ public class MecDriveSubsystem extends Subsystem {
    // public void driveCartesian​(double ySpeed, double xSpeed, double zRotation)
    public void driveAngle(double moveY, double moveX, double targetAngle) {
       // This section checks the actual angle vs the desired angle and calculates how much twist to use
-      double actualAngle = gyro1.getAngle();
+      actualAngle = gyro1.getAngle();
       rotateError = targetAngle - actualAngle;
       numberOfTurns = (int) (actualAngle / 360);
       newTargetAngle = targetAngle + (360 * numberOfTurns);
-      double newRotateError = newTargetAngle - actualAngle;
+      newRotateError = newTargetAngle - actualAngle;
 
       if ( Math.abs(newTargetAngle - actualAngle) > 180 ) {
         newTargetAngle = newTargetAngle + 360;
