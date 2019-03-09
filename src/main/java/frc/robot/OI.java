@@ -96,14 +96,14 @@ public class OI {
     levelOneCargo.whenPressed(new SetElevatorLevel(200000));
     SmartDashboard.putData("Level 1 Cargo", new SetElevatorLevel(200000));
     
-    levelTwoHatch.whenPressed(new SetElevatorLevel(550000));
-    SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(550000));
+    levelTwoHatch.whenPressed(new SetElevatorLevel(599000));
+    SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(599000));
     
     levelTwoCargo.whenPressed(new SetElevatorLevel(600000));
     SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(600000));
     
-    levelThreeHatch.whenPressed(new SetElevatorLevel(1050000));
-    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(1050000));
+    levelThreeHatch.whenPressed(new SetElevatorLevel(1100000));
+    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(1100000));
 
     levelThreeCargo.whenPressed(new SetElevatorLevel(1080000));
     SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(1080000));

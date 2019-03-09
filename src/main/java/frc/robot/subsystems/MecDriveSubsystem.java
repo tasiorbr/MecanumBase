@@ -25,8 +25,8 @@ public class MecDriveSubsystem extends Subsystem {
 
   double rotateZCommanded = 0;
   double rotateError;
-  double rotateErrorAllowable = 1.0;
-  double rotateP = 0.0025;
+  double rotateErrorAllowable = 12.0;
+  double rotateP = 0.0005;
   double newTargetAngle;
   double actualAngle;
   double newRotateError;
@@ -49,7 +49,7 @@ public class MecDriveSubsystem extends Subsystem {
        mDrive.setSafetyEnabled(false);
        // mDrive.setExpiration(0.1);
         mDrive.setMaxOutput(1.0);
-        mDrive.setDeadband(0.05);
+        mDrive.setDeadband(0.06);
     }
 
 
