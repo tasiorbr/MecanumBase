@@ -13,12 +13,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 import frc.robot.commands.ManualDriveCartesian;
-
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.MecDriveSubsystem;
 import frc.robot.subsystems.PneumaticSubsystem;
+import com.ctre.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -50,7 +49,12 @@ public class Robot extends TimedRobot {
     
     Robot.mecDriveSubsystem.gyro1.calibrate();
     Robot.elevatorSubsystem.elevatorMotor.configFactoryDefault();
+<<<<<<< HEAD
     Robot.elevatorSubsystem.elevatorMotor.setInverted(false);
+=======
+    Robot.elevatorSubsystem.elevatorMotor.setInverted(true);
+  
+>>>>>>> 0c1776dc49b7c580c15400672fbad7c51162b75c
     
     // Set the quadrature (relative) sensor to match absolute
 	  Robot.elevatorSubsystem.elevatorMotor.setSelectedSensorPosition(0, 0, 0);
