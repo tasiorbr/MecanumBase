@@ -26,7 +26,7 @@ public class MecDriveSubsystem extends Subsystem {
   double rotateZCommanded = 0;
   double rotateError;
   double rotateErrorAllowable = 0.5;
-  double rotateP = 0.005;
+  double rotateP = 0.0025;
   double newTargetAngle;
   double actualAngle;
   double newRotateError;
@@ -84,7 +84,7 @@ public class MecDriveSubsystem extends Subsystem {
       }
 
       if ( Math.abs(newRotateError) > rotateErrorAllowable) {
-        rotateZCommanded = newRotateError * rotateP + 0.15;
+        rotateZCommanded = newRotateError * rotateP;
       }
       else rotateZCommanded = 0;
     mDrive.driveCartesian(moveY, moveX, rotateZCommanded);   

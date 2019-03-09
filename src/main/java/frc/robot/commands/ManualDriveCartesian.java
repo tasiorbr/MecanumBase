@@ -45,7 +45,7 @@ public class ManualDriveCartesian extends Command {
  
 
     // This Section looks for joystic pov hat button presses to over ride manual twist
-   
+    /*
     if(hatAngle == 0) {
       targetAngle = 0;
       snapToAngle = true;
@@ -85,6 +85,8 @@ public class ManualDriveCartesian extends Command {
       targetAngle = 298.75;
       snapToAngle = true;
     };
+
+    */
 
     // This Section looks for joystic top button presses to over ride manual twist
    
