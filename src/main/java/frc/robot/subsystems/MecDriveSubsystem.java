@@ -25,8 +25,8 @@ public class MecDriveSubsystem extends Subsystem {
 
   double rotateZCommanded = 0;
   double rotateError;
-  double rotateErrorAllowable = 12.0;
-  double rotateP = 0.0005;
+  double rotateErrorAllowable = 0.5;
+  double rotateP = 0.008;
   double newTargetAngle;
   double actualAngle;
   double newRotateError;
