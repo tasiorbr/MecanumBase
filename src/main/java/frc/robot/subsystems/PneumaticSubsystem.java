@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -20,6 +21,13 @@ public class PneumaticSubsystem extends Subsystem {
   Compressor c = new Compressor(0); 
  
 
+  //DigitalInput forwardLimitSwitch, reverseLimitSwitch;
+  public DigitalInput elevForwardLimitSwitch = new DigitalInput(0);
+  public DigitalInput elevReverseLimitSwitch = new DigitalInput(1);
+  public DigitalInput mainPlateDownLimitSwitch = new DigitalInput(2);
+  public DigitalInput mainPlateUpLimitSwitch = new DigitalInput(3);
+  public DigitalInput backPlateDownLimitSwitch = new DigitalInput(4);
+  public DigitalInput backPlateUpLimitSwitch = new DigitalInput(5);
  
 // Joel's comments:  updated wiring on practace 'bot to be the same as 'real' 'bot
   public DoubleSolenoid gripperSolenoid = new DoubleSolenoid(7, 0);

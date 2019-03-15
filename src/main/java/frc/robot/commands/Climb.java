@@ -11,48 +11,66 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class CloseGripper extends Command {
-  public CloseGripper() {
+
+
+public class Climb extends Command {
+  public Climb() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.pneumaticSubsystem);
+    requires(Robot.elevatorSubsystem);    
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kOff);
+    Robot.elevatorSubsystem.elevSetToPosition(0);
+    Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
+    Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kForward); 
+    Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kOff);
+    Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kForward);
+
+    boolean allDone = false;
+ 
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
-    //This will turn on the solenoid (closing the grabber)
-    Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kOff);
-    Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kForward);
+  protected void execute() { 
     
+    
+
+    if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get() && Robot.pneumaticSubsystem.backPlateDownLimitSwitch.get()) {
+      Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
+      Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kForward);
+     
+      if(Robot.pneumaticSubsystem.elevForwardLimitSwitch.get()){
+        Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
+        Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
+          
+               
+      }
+    }
+
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+        
     return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    //This should release the solenoid (opening the grabber) once the trigger is released
-    Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kOff);
-    Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kReverse);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-   //Not sure if this needs to be here, but it seemed like a good idea... 
-   Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kOff);
-   Robot.pneumaticSubsystem.gripperSolenoid.set(Value.kReverse);
   }
 }
