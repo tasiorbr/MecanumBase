@@ -14,10 +14,14 @@ public class SetElevatorLevel extends Command {
         
     private int setElevLevelCommandSetpoint;
 
-        //Set the PID Loop allowable error
-        public int allowableError = 2000;
+    //Set the PID Loop allowable error
+    public int allowableError = 2000;
+
+    
 
     public SetElevatorLevel(int setElevLevelSetpoint) {
+    
+    
     // Use requires() here to declare subsystem dependencies
     requires(Robot.elevatorSubsystem);
     

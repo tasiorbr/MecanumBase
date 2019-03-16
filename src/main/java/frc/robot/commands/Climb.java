@@ -14,6 +14,9 @@ import frc.robot.Robot;
 
 
 public class Climb extends Command {
+
+  private boolean allDone = false;
+
   public Climb() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -30,7 +33,7 @@ public class Climb extends Command {
     Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kOff);
     Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kForward);
 
-    boolean allDone = false;
+    
  
 
   }
@@ -48,6 +51,7 @@ public class Climb extends Command {
       if(Robot.pneumaticSubsystem.elevForwardLimitSwitch.get()){
         Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
         Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
+        allDone = true;
           
                
       }
@@ -59,6 +63,9 @@ public class Climb extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+    if (allDone) {
+      return true;
+    }
         
     return false;
   }
