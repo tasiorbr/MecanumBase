@@ -93,20 +93,20 @@ public class OI {
     levelOneHatch.whenPressed(new SetElevatorLevel(0));
     SmartDashboard.putData("Level 1 Hatch", new SetElevatorLevel(0));   
     
-    levelOneCargo.whenPressed(new SetElevatorLevel(200000));
-    SmartDashboard.putData("Level 1 Cargo", new SetElevatorLevel(200000));
+    levelOneCargo.whenPressed(new SetElevatorLevel(270000));
+    SmartDashboard.putData("Level 1 Cargo", new SetElevatorLevel(270000));
     
-    levelTwoHatch.whenPressed(new SetElevatorLevel(599000));
-    SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(599000));
+    levelTwoHatch.whenPressed(new SetElevatorLevel(527000));
+    SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(527000));
     
-    levelTwoCargo.whenPressed(new SetElevatorLevel(600000));
-    SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(600000));
+    levelTwoCargo.whenPressed(new SetElevatorLevel(630000));
+    SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(630000));
     
-    levelThreeHatch.whenPressed(new SetElevatorLevel(1100000));
-    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(1100000));
+    levelThreeHatch.whenPressed(new SetElevatorLevel(1000000));
+    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(1000000));
 
-    levelThreeCargo.whenPressed(new SetElevatorLevel(1080000));
-    SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(1080000));
+    levelThreeCargo.whenPressed(new SetElevatorLevel(1079000));
+    SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(1079000));
 
     /* Manual move using the Xbox Controller
     if (xboxController.getPOV() != -1) {
