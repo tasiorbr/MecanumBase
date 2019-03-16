@@ -95,28 +95,8 @@ public class ManualDriveCartesian extends Command {
       snapToAngle = true;
     };
 
-    if(Robot.oi.alignRocketRightFront.get()) {
-      targetAngle = 28.75;
-      snapToAngle = true;
-    };
-
     if(Robot.oi.alignCargoShipLeft.get()) {
       targetAngle = 90;
-      snapToAngle = true;
-    };
-
-    if(Robot.oi.alignRocketRightRear.get()) {
-      targetAngle = 118.75;
-      snapToAngle = true;
-    };
-    
-    if(Robot.oi.alignLoadingStation.get()) {
-      targetAngle = 180;
-      snapToAngle = true;
-    };
-
-    if(Robot.oi.alignRocketLeftRear.get()) {
-      targetAngle = 151.25;
       snapToAngle = true;
     };
 
@@ -125,10 +105,34 @@ public class ManualDriveCartesian extends Command {
       snapToAngle = true;
     };
 
-    if(Robot.oi.alignRocketLeftFront.get()) {
-      targetAngle = 298.75;
+    if(Robot.oi.alignLoadingStation.get()) {
+      targetAngle = 180;
       snapToAngle = true;
     };
+
+
+    if(Robot.oi.alignRocketRightFront.get()) {
+      targetAngle = 28.75;
+      snapToAngle = true;
+    };
+
+    if(Robot.oi.alignRocketLeftFront.get()) {
+      targetAngle = 331.25;
+      snapToAngle = true;
+    };
+
+    if(Robot.oi.alignRocketRightRear.get()) {
+      targetAngle = 151.25;
+      snapToAngle = true;
+    };
+    
+
+    if(Robot.oi.alignRocketLeftRear.get()) {
+      targetAngle = 208.75;
+      snapToAngle = true;
+    };
+
+
 
 
 
