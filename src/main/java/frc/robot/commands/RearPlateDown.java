@@ -14,11 +14,11 @@ import frc.robot.Robot;
 /**
  * Add your docs here.
  */
-public class SecondaryPlateUp extends InstantCommand {
+public class RearPlateDown extends InstantCommand {
   /**
    * Add your docs here.
    */
-  public SecondaryPlateUp() {
+  public RearPlateDown() {
     super();
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -30,7 +30,7 @@ public class SecondaryPlateUp extends InstantCommand {
   @Override
   protected void initialize() {
     Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kOff);
-    Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kReverse);
+    Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kForward);
   }
 
 }

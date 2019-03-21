@@ -59,7 +59,8 @@ public class RobotMap {
      // Joystics and Controllers
      public static int leftcontrollerPort = 0;
      public static int rightcontrollerPort = 1;
-     public static int gameStickPort = 2;
+     public static int bBBluePort = 2;
+     public static int bBRedPort = 3;
      //public static int xboxControllerPort = 3;
 
      // Cameras

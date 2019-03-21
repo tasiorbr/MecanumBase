@@ -15,6 +15,10 @@ import frc.robot.commands.CloseGripper;
 import frc.robot.commands.ElevatorManualMove;
 import frc.robot.commands.LiftBackward;
 import frc.robot.commands.LiftForward;
+import frc.robot.commands.MainPlateDown;
+import frc.robot.commands.MainPlateUp;
+import frc.robot.commands.RearPlateDown;
+import frc.robot.commands.RearPlateUp;
 import frc.robot.commands.SetElevatorLevel;
 
 /**
@@ -29,7 +33,8 @@ public class OI {
   // number it is.
   public Joystick leftstick = new Joystick(RobotMap.leftcontrollerPort);
   public Joystick rightstick = new Joystick(RobotMap.rightcontrollerPort);
-  public Joystick gameStick = new Joystick(RobotMap.gameStickPort);
+  public Joystick bBBlue = new Joystick(RobotMap.bBBluePort);
+  public Joystick bBRed = new Joystick(RobotMap.bBRedPort);
   //public Joystick xboxController = new Joystick(RobotMap.xboxControllerPort);
 
      
@@ -45,21 +50,27 @@ public class OI {
       */
 
       
-      public Button levelOneHatch = new JoystickButton(gameStick, 11);
-      public Button levelOneCargo = new JoystickButton(gameStick, 7);
-      public Button levelTwoHatch = new JoystickButton(gameStick, 5);
-      public Button levelTwoCargo = new JoystickButton(gameStick, 12);
-      public Button levelThreeHatch = new JoystickButton(gameStick, 9);
-      public Button levelThreeCargo = new JoystickButton(gameStick, 10);
+      public Button levelOneHatch = new JoystickButton(bBBlue, 8);
+      public Button levelOneCargo = new JoystickButton(bBBlue, 4);
+      public Button levelTwoHatch = new JoystickButton(bBBlue, 7);
+      public Button levelTwoCargo = new JoystickButton(bBBlue, 3);
+      public Button levelThreeHatch = new JoystickButton(bBBlue, 6);
+      public Button levelThreeCargo = new JoystickButton(bBBlue, 2);
+
+      public Button cStow = new JoystickButton(bBBlue, 9);
+      public Button cLoad = new JoystickButton(bBBlue, 5);
+      public Button cDrop = new JoystickButton(bBBlue, 1);
       
+      public Button elevForward = new JoystickButton(bBRed, 1);
+      public Button elevBackward = new JoystickButton(bBRed, 2);
 
-      public Button elevForward = new JoystickButton(gameStick, 8);
-      public Button elevBackward = new JoystickButton(gameStick, 6);
+      public Button mainPlateDown = new JoystickButton(bBRed, 8);
+      public Button rearPlateDown = new JoystickButton(bBRed, 7);
+      public Button mainPlateUp = new JoystickButton(bBRed, 6);
+      public Button rearPlateUp = new JoystickButton(bBRed, 5);
 
-     // public Button climbOne = new JoystickButton(gameStick, 7);
-     // public Button climbTwo = new JoystickButton(gameStick, 12);
-     // public Button climbThree = new JoystickButton(gameStick, 10);
-      public Button climbFour = new JoystickButton(gameStick, 3);
+      public Button prepClimb = new JoystickButton(bBRed, 10);
+      public Button climb = new JoystickButton(bBRed, 9);
 
       public Button alignCargoShipFront = new JoystickButton(leftstick, 3);
       public Button alignLoadingStation = new JoystickButton(leftstick, 4);      
@@ -108,14 +119,10 @@ public class OI {
     levelThreeCargo.whenPressed(new SetElevatorLevel(1079000));
     SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(1079000));
 
-    /* Manual move using the Xbox Controller
-    if (xboxController.getPOV() != -1) {
-      new ElevatorManualMove();
-    };
-    */
+    
 
     // Manual move using the button box joystick
-    if (gameStick.getRawAxis(1) != 0) {
+    if (bBBlue.getRawAxis(1) != 0) {
       new ElevatorManualMove();
     }
   
@@ -130,15 +137,18 @@ public class OI {
   //  Justin's Comment: This command will fire the command to move lift backward
   elevBackward.whenPressed(new LiftBackward());
 
-/*
-  climbOne.whenPressed(new MainPlateDown());
 
-  climbTwo.whenPressed(new SecondaryPlateDown());
+  mainPlateDown.whenPressed(new MainPlateDown());
 
-  climbThree.whenPressed(new MainPlateUp());
+  rearPlateDown.whenPressed(new RearPlateDown());
 
-  climbFour.whenPressed(new SecondaryPlateUp());
-*/
+  mainPlateUp.whenPressed(new MainPlateUp());
+
+  rearPlateUp.whenPressed(new RearPlateUp());
+
+
+  
+
 
 
   }
