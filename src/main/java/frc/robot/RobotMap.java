@@ -35,9 +35,9 @@ public class RobotMap {
    //Elevator Motor PWM ID - Not required because we switched to Talon SRX
    //public static int motorPortElevator = 4;
    
-   public static int motorPortCargoLeft = 5;
-   public static int motorPortCargoRight = 6;
-   public static int motorPortArmsUpDown = 7;
+   public static int motorPortCargo = 2;
+
+  
 
    // PID
  

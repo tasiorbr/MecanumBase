@@ -20,6 +20,7 @@ import frc.robot.commands.ManualDriveCartesian;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.MecDriveSubsystem;
 import frc.robot.subsystems.PneumaticSubsystem;
+import frc.robot.subsystems.CargoSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,6 +35,7 @@ public class Robot extends TimedRobot {
   public static MecDriveSubsystem mecDriveSubsystem = new MecDriveSubsystem();
   public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
   public static PneumaticSubsystem pneumaticSubsystem = new PneumaticSubsystem();
+  public static CargoSubsystem cargoSubsystem = new CargoSubsystem();
   
   //UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
 
