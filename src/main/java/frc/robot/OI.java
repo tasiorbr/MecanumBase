@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.CargoManualMove;
 import frc.robot.commands.Climb;
 import frc.robot.commands.ClimbPrep;
+import frc.robot.commands.ClimpPrep2;
 import frc.robot.commands.CloseGripper;
 import frc.robot.commands.ElevatorManualMove;
 import frc.robot.commands.LiftBackward;
@@ -58,7 +59,7 @@ public class OI {
       public Button levelTwoCargo = new JoystickButton(bBBlue, 3);
       public Button levelThreeHatch = new JoystickButton(bBBlue, 6);
       public Button levelThreeCargo = new JoystickButton(bBBlue, 2);
-
+      public Button pClimb = new JoystickButton(bBBlue, 10);
       public Button cStow = new JoystickButton(bBBlue, 9);
       public Button cLoad = new JoystickButton(bBBlue, 5);
       public Button cDrop = new JoystickButton(bBBlue, 1);
@@ -104,16 +105,17 @@ public class OI {
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     levelOneHatch.whenPressed(new SetElevatorLevel(0));
-     
-    levelTwoHatch.whenPressed(new SetElevatorLevel(550000));
+        // 10000 = ~2" 
+    levelTwoHatch.whenPressed(new SetElevatorLevel(540000));
     
-    levelThreeHatch.whenPressed(new SetElevatorLevel(905000));
+    levelThreeHatch.whenPressed(new SetElevatorLevel(980000));
     
+    pClimb.whenPressed(new SetElevatorLevel(300000));
     
     
     levelOneCargo.whenPressed(new SetElevatorLevel(270000));
-        
-    levelTwoCargo.whenPressed(new SetElevatorLevel(630000));
+      
+    levelTwoCargo.whenPressed(new SetElevatorLevel(640000));
    
     levelThreeCargo.whenPressed(new SetElevatorLevel(1079000));
    

@@ -38,7 +38,7 @@ public class Climb extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() { 
-    
+    /*
     if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get()) {
       Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kForward);
 
@@ -55,6 +55,8 @@ public class Climb extends Command {
         }
       }
     }
+
+    */
   }
 
   // Make this return true when this Command no longer needs to run execute()
