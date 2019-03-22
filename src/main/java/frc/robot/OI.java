@@ -10,7 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.CargoManualMove;
+import frc.robot.commands.Climb;
+import frc.robot.commands.ClimbPrep;
 import frc.robot.commands.CloseGripper;
 import frc.robot.commands.ElevatorManualMove;
 import frc.robot.commands.LiftBackward;
@@ -102,28 +104,34 @@ public class OI {
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     levelOneHatch.whenPressed(new SetElevatorLevel(0));
-    SmartDashboard.putData("Level 1 Hatch", new SetElevatorLevel(0));   
+     
+    levelTwoHatch.whenPressed(new SetElevatorLevel(550000));
+    
+    levelThreeHatch.whenPressed(new SetElevatorLevel(905000));
+    
+    
     
     levelOneCargo.whenPressed(new SetElevatorLevel(270000));
-    SmartDashboard.putData("Level 1 Cargo", new SetElevatorLevel(270000));
-    
-    levelTwoHatch.whenPressed(new SetElevatorLevel(527000));
-    SmartDashboard.putData("Level 2 Hatch", new SetElevatorLevel(527000));
-    
+        
     levelTwoCargo.whenPressed(new SetElevatorLevel(630000));
-    SmartDashboard.putData("Level 2 Cargo", new SetElevatorLevel(630000));
-    
-    levelThreeHatch.whenPressed(new SetElevatorLevel(1000000));
-    SmartDashboard.putData("Level 3 Hatch", new SetElevatorLevel(1000000));
-
+   
     levelThreeCargo.whenPressed(new SetElevatorLevel(1079000));
-    SmartDashboard.putData("Level 3 Cargo", new SetElevatorLevel(1079000));
+   
+    prepClimb.whenPressed(new ClimbPrep());
+
+    climb.whenPressed(new Climb());
+
+
 
     
 
     // Manual move using the button box joystick
     if (bBBlue.getRawAxis(1) != 0) {
       new ElevatorManualMove();
+    }
+
+    if (bBRed.getRawAxis(1) != 0) {
+      new CargoManualMove();
     }
   
    //  Add remaining buttons above with the others then copy the above syntax and add remaining levels here

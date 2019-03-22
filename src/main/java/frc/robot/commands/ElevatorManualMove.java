@@ -31,7 +31,7 @@ public class ElevatorManualMove extends Command {
   protected void execute() {
     double manualMove = 0;
     //  Use this section to use the joystick on the button box
-      manualMove = -Robot.oi.bBBlue.getRawAxis(0);
+      manualMove = Robot.oi.bBBlue.getRawAxis(1);
     
    
 

@@ -30,10 +30,10 @@ public class PneumaticSubsystem extends Subsystem {
   public DigitalInput backPlateUpLimitSwitch = new DigitalInput(2);
  
 // Joel's comments:  updated wiring on practace 'bot to be the same as 'real' 'bot
-  public DoubleSolenoid gripperSolenoid = new DoubleSolenoid(5, 2);
+  public DoubleSolenoid gripperSolenoid = new DoubleSolenoid(7, 0);
   public DoubleSolenoid mainPlateDouble = new DoubleSolenoid(4, 3);
   public DoubleSolenoid secondaryPlateDouble = new DoubleSolenoid(6, 1);
-  public DoubleSolenoid forwardBackwardDouble = new DoubleSolenoid(0, 7);
+  public DoubleSolenoid forwardBackwardDouble = new DoubleSolenoid(2, 5);
 
 
 // Joel's comment:  Adding this section is what allows us to call the PneumaticSubsystem from other parts of the code

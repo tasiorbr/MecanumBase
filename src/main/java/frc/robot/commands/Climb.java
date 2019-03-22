@@ -32,32 +32,29 @@ public class Climb extends Command {
     Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kForward); 
     Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kOff);
     Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kForward);
-
-    
- 
-
+   
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() { 
     
-    
+    if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get()) {
+      Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kForward);
 
-    if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get() && Robot.pneumaticSubsystem.backPlateDownLimitSwitch.get()) {
-      Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
-      Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kForward);
+      if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get() && Robot.pneumaticSubsystem.backPlateDownLimitSwitch.get()) {
+        Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
+        Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kForward);
      
-      if(Robot.pneumaticSubsystem.elevForwardLimitSwitch.get()){
-        Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
-        Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
-        allDone = true;
+        if(Robot.pneumaticSubsystem.elevForwardLimitSwitch.get()){
+          Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
+          Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
+          allDone = true;
           
                
+        }
       }
     }
-
-
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -67,7 +67,7 @@ public class SetElevatorLevel extends Command {
     Robot.elevatorSubsystem.elevSetToPosition(setElevLevelCommandSetpoint);
 
     if (setElevLevelCommandSetpoint == 0 &  Robot.elevatorSubsystem.elevatorMotor.getClosedLoopError() < allowableError) {
-     setTimeout(3);   
+     setTimeout(2);   
     }
     
     }
