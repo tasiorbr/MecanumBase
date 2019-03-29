@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
@@ -27,7 +28,7 @@ public class Climb extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.elevatorSubsystem.elevSetToPosition(0);
+
     Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
     Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kForward); 
     Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kOff);
@@ -38,26 +39,23 @@ public class Climb extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() { 
-    /*
-    if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get()) {
-      Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kForward);
+    Robot.elevatorSubsystem.elevSetToPosition(0);
+    
+    if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get() && Robot.pneumaticSubsystem.backPlateDownLimitSwitch.get()) {
+        setTimeout(1.0);
+      }
 
-      if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get() && Robot.pneumaticSubsystem.backPlateDownLimitSwitch.get()) {
+    if(isTimedOut()) {
         Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
         Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kForward);
-     
-        if(Robot.pneumaticSubsystem.elevForwardLimitSwitch.get()){
-          Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
-          Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
-          allDone = true;
-          
-               
+      }
+
+    if(Robot.pneumaticSubsystem.elevForwardLimitSwitch.get()){
+        Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
+        Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
+        allDone = true;           
         }
       }
-    }
-
-    */
-  }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override

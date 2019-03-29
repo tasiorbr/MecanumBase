@@ -10,7 +10,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.CargoManualMove;
 import frc.robot.commands.Climb;
 import frc.robot.commands.ClimbPrep;
 import frc.robot.commands.ClimpPrep2;
@@ -119,7 +118,7 @@ public class OI {
    
     levelThreeCargo.whenPressed(new SetElevatorLevel(1079000));
    
-    prepClimb.whenPressed(new ClimbPrep());
+    prepClimb.whenPressed(new ClimpPrep2());
 
     climb.whenPressed(new Climb());
 
@@ -130,10 +129,6 @@ public class OI {
     // Manual move using the button box joystick
     if (bBBlue.getRawAxis(1) != 0) {
       new ElevatorManualMove();
-    }
-
-    if (bBRed.getRawAxis(1) != 0) {
-      new CargoManualMove();
     }
   
    //  Add remaining buttons above with the others then copy the above syntax and add remaining levels here

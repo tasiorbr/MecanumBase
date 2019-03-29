@@ -8,12 +8,15 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.Robot;
 
 public class ClimpPrep2 extends CommandGroup {
   /**
    * Add your docs here.
    */
   public ClimpPrep2() {
+    requires(Robot.pneumaticSubsystem);
+    requires(Robot.elevatorSubsystem);
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -24,7 +27,7 @@ public class ClimpPrep2 extends CommandGroup {
     // e.g. addParallel(new Command1());
     // addSequential(new Command2());
     // Command1 and Command2 will run in parallel.
-    addSequential(new LiftForward());
+    addParallel(new LiftForward());
     addParallel(new SetElevatorLevel(300000));
 
     
