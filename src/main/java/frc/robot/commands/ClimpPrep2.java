@@ -28,7 +28,7 @@ public class ClimpPrep2 extends CommandGroup {
     // addSequential(new Command2());
     // Command1 and Command2 will run in parallel.
     addParallel(new LiftForward());
-    addParallel(new SetElevatorLevel(300000));
+    addParallel(new SetElevatorLevel(250000));
 
     
     // A command group will require all of the subsystems that each member

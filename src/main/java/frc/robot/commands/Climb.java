@@ -48,14 +48,17 @@ public class Climb extends Command {
     if(isTimedOut()) {
         Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
         Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kForward);
-      }
+      
 
-    if(Robot.pneumaticSubsystem.elevForwardLimitSwitch.get()){
-        Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
-        Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
+      if(Robot.pneumaticSubsystem.elevReverseLimitSwitch.get()){
+         Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
+         Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
         allDone = true;           
         }
+
       }
+      
+  }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
