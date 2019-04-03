@@ -29,31 +29,43 @@ public class Climb extends Command {
   @Override
   protected void initialize() {
 
+    //When command initializes extend both main and rear cylinders
     Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
     Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kForward); 
     Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kOff);
     Robot.pneumaticSubsystem.secondaryPlateDouble.set(Value.kForward);
+    
    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() { 
+    //Drop the elevator
     Robot.elevatorSubsystem.elevSetToPosition(0);
     
     if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get() && Robot.pneumaticSubsystem.backPlateDownLimitSwitch.get()) {
-        setTimeout(1.0);
-      }
-
-    if(isTimedOut()) {
-        Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
-        Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kForward);
+    
+      //Once both cylinders are down, move the lift back (which moves the chassis forward)
+      Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
+      Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kReverse);
       
 
       if(Robot.pneumaticSubsystem.elevReverseLimitSwitch.get()){
-         Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
-         Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
-        allDone = true;           
+        
+        //Once the lift is back (chassis foward) pull up the main plate
+        Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
+        Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
+        
+        //Wait 1 sec to make sure the main plate is off the ground
+        Timer.delay(1);
+
+        //Move the lift forward to shift the center of gravity
+        Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
+        Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kForward);
+        
+        allDone = true;
+
         }
 
       }
