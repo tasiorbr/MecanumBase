@@ -44,29 +44,31 @@ public class Climb extends Command {
     //Drop the elevator
     Robot.elevatorSubsystem.elevSetToPosition(0);
     
-    if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get() && Robot.pneumaticSubsystem.backPlateDownLimitSwitch.get()) {
+    if(Robot.pneumaticSubsystem.mainPlateDownLimitSwitch.get() == false ) {
     
       //Once both cylinders are down, move the lift back (which moves the chassis forward)
       Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
       Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kReverse);
       
-
-      if(Robot.pneumaticSubsystem.elevReverseLimitSwitch.get()){
+      
+      if(Robot.pneumaticSubsystem.elevReverseLimitSwitch.get() == false) {
         
         //Once the lift is back (chassis foward) pull up the main plate
         Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kOff);
         Robot.pneumaticSubsystem.mainPlateDouble.set(Value.kReverse);
         
         //Wait 1 sec to make sure the main plate is off the ground
-        Timer.delay(1);
+        Timer.delay(2);
 
         //Move the lift forward to shift the center of gravity
+        
         Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kOff);
         Robot.pneumaticSubsystem.forwardBackwardDouble.set(Value.kForward);
         
         allDone = true;
 
         }
+        
 
       }
       

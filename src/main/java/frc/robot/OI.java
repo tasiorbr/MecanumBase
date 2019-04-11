@@ -51,12 +51,12 @@ public class OI {
       */
 
       
-      public Button levelOneHatch = new JoystickButton(bBBlue, 8);
-      public Button levelOneCargo = new JoystickButton(bBBlue, 4);
-      public Button levelTwoHatch = new JoystickButton(bBBlue, 7);
-      public Button levelTwoCargo = new JoystickButton(bBBlue, 3);
-      public Button levelThreeHatch = new JoystickButton(bBBlue, 6);
-      public Button levelThreeCargo = new JoystickButton(bBBlue, 2);
+      public Button levelOneHatch = new JoystickButton(bBBlue, 4);
+      //public Button levelOneCargo = new JoystickButton(bBBlue, 4);
+      public Button levelTwoHatch = new JoystickButton(bBBlue, 3);
+      //public Button levelTwoCargo = new JoystickButton(bBBlue, 3);
+      public Button levelThreeHatch = new JoystickButton(bBBlue, 2);
+      //public Button levelThreeCargo = new JoystickButton(bBBlue, 2);
       public Button pClimb = new JoystickButton(bBBlue, 10);
       public Button cStow = new JoystickButton(bBBlue, 9);
       public Button cLoad = new JoystickButton(bBBlue, 5);
@@ -110,13 +110,14 @@ public class OI {
     
     pClimb.whenPressed(new SetElevatorLevel(300000));
     
-    
+    /*
     levelOneCargo.whenPressed(new SetElevatorLevel(270000));
       
     levelTwoCargo.whenPressed(new SetElevatorLevel(640000));
    
     levelThreeCargo.whenPressed(new SetElevatorLevel(1079000));
-   
+    */
+
     prepClimb.whenPressed(new ClimpPrep2());
 
     climb.whenPressed(new Climb());
@@ -126,7 +127,7 @@ public class OI {
     
 
     // Manual move using the button box joystick
-    if (bBBlue.getRawAxis(1) != 0) {
+    if (bBRed.getRawAxis(1) != 0) {
       new ElevatorManualMove();
     }
   

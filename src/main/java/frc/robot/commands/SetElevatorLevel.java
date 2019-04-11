@@ -43,7 +43,7 @@ public class SetElevatorLevel extends Command {
                 //Robot.elevatorSubsystem.elevatorMotor.configNominalOutputReverse(0, 0);
             // peak output forward reduced for testing without the lift
             Robot.elevatorSubsystem.elevatorMotor.configPeakOutputForward(1.0, 0);
-            Robot.elevatorSubsystem.elevatorMotor.configPeakOutputReverse(-.3,0);
+            Robot.elevatorSubsystem.elevatorMotor.configPeakOutputReverse(-.5,0);
             
             //Set the PID Loop allowable error
             //Allowable error in "Native Units" (i.e. encoder 'ticks') for loop to be considered "On Target" 
@@ -67,7 +67,7 @@ public class SetElevatorLevel extends Command {
     Robot.elevatorSubsystem.elevSetToPosition(setElevLevelCommandSetpoint);
 
     if (setElevLevelCommandSetpoint == 0 &  Robot.elevatorSubsystem.elevatorMotor.getClosedLoopError() < allowableError) {
-     setTimeout(2);   
+     setTimeout(3);   
     }
     
     }
